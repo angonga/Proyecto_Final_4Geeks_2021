@@ -17,7 +17,7 @@ export const Contacto = _props => {
 					<Form>
 						<FormGroup row>
 							<Label for="nombre" sm={3} size="default">
-								NOMBRE
+								NOMBRE.
 							</Label>
 							<Col sm={7}>
 								<Input type="text" name="text" id="text" />

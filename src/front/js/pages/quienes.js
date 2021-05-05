@@ -8,7 +8,7 @@ export const Quienes = _props => {
 	return (
 		<div>
 			<p className="font-italic font-weight-bold text-info">
-				<h1 align="center">QUIENES SOMOS</h1>
+				<h1 align="center">QUIENES SOMOS.</h1>
 			</p>
 			<ul>
 				<div className="row justify-content-around">
