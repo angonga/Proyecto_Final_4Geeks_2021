@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
-import Register from "./pages/register";
+import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
+import Register from "./pages/register";
+import Login from "./pages/login";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 import { PerfilUsuario } from "./pages/perfilUsuario";
 import PerfilProveedor from "./pages/perfilProveedor";
 import { Navbar } from "./component/navbar";
+import "../styles/layout.scss";
+import { Menu } from "./component/navbar.js";
 import { Footer } from "./component/footer";
 import Recuperacion from "./pages/recuperacion";
 import { EditProveedor } from "./pages/editProveedor";
@@ -22,13 +25,14 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="d-flex flex-column">
+		<div className="container d-flex flex-column">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<Menu />
+
 					<Switch>
 						<Route exact path="/">
-							<Register />
+							<Home />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
@@ -58,6 +62,12 @@ const Layout = () => {
 							<Recuperacion />
 						</Route>
 
+						<Route exact path="/register">
+							<Register />
+						</Route>
+						<Route exact path="/login">
+							<Login />
+						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
