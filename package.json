@@ -76,12 +76,26 @@
 		]
 	},
 	"dependencies": {
+		"axios": "^0.21.1",
+		"@types/react-native-snap-carousel": "^3.8.2",
 		"bootstrap": "^4.3.1",
+		"chart.js": "^3.2.1",
 		"prop-types": "^15.6.1",
 		"react": "^16.14.0",
+		"react-chartjs-2": "^3.0.3",
+		"react-datepicker": "^3.8.0",
+		"react-card-carousel": "^1.1.3",
 		"react-dom": "^16.14.0",
+		"react-elastic-carousel": "^0.11.5",
+		"react-native-imaged-carousel-card": "^0.1.1",
+		"react-native-snap-carousel": "^3.9.1",
 		"react-polyfills": "0.0.1",
+		"react-reveal": "^1.2.2",
 		"react-router-dom": "^5.2.0",
-		"reactstrap": "^8.9.0"
+		"react-slick": "^0.28.1",
+		"react-spring": "^9.1.2",
+		"react-use-gesture": "^9.1.3",
+		"reactstrap": "^8.9.0",
+		"use-dencrypt-effect": "^1.0.2"
 	}
 }
