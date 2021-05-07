@@ -7,9 +7,16 @@ import Register from "./pages/register";
 import Login from "./pages/login";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
+import { PerfilUsuario } from "./pages/perfilUsuario";
+import PerfilProveedor from "./pages/perfilProveedor";
+import { Navbar } from "./component/navbar";
 import "../styles/layout.scss";
 import { Menu } from "./component/navbar.js";
 import { Footer } from "./component/footer";
+import Recuperacion from "./pages/recuperacion";
+import { EditProveedor } from "./pages/editProveedor";
+import { EditUsuario } from "./pages/editUsuario";
+import ResetPassword from "./pages/resetPassword";
 
 //create your first component
 const Layout = () => {
@@ -30,6 +37,31 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
+
+						<Route exact path="/perfilUsuario">
+							<PerfilUsuario />
+						</Route>
+
+						<Route exact path="/perfilProveedor">
+							<PerfilProveedor />
+						</Route>
+
+						<Route exact path="/editProveedor">
+							<EditProveedor />
+						</Route>
+
+						<Route exact path="/resetPassword">
+							<ResetPassword />
+						</Route>
+
+						<Route exact path="/editUsuario">
+							<EditUsuario />
+						</Route>
+
+						<Route exact path="/recuperacion">
+							<Recuperacion />
+						</Route>
+
 						<Route exact path="/register">
 							<Register />
 						</Route>

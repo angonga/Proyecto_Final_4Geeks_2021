@@ -1,0 +1,39 @@
+
+
+.heading{
+  
+  font-family: Arial, Helvetica, sans-serif;
+}
+.img-holder{
+  margin: auto;
+  width: 92px;
+  height: 92px;
+  border: 3px black solid;
+  border-radius: 5px;
+  
+}
+.img{
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+#input[type="file"] {
+	display: none;
+}
+/* .label{
+  width: 125px;
+  margin-top: 1rem;
+  display: flex;
+  
+} */
+/* .image-upload{
+
+ 
+  height: 50px;
+  color: white;
+  border-radius: 10px;
+  background-color: black;
+  text-align: center;  
+  cursor: pointer;
+} */
