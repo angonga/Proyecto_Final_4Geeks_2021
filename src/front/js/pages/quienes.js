@@ -16,7 +16,7 @@ export const Quienes = _props => {
 						<Card>
 							<CardImg
 								top
-								width="100%"
+								width="100%" 
 								src="https://mail.google.com/mail/u/0?ui=2&ik=016633df5d&attid=0.5&permmsgid=msg-a:r3691995154495253232&th=17909b7d8fc99e40&view=att&disp=safe&realattid=ii_knxaxdlr3"
 								alt="Card image cap"
 							/>

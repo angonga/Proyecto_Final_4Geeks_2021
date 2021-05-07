@@ -7,7 +7,7 @@ export const Contacto = _props => {
 		<div>
 			<Card>
 				<CardImg
-					top
+					top 
 					width="236"
 					height="304"
 					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaIhgJ7LP5OQZB7_UST6tafayq4Jd6zBfziQ&usqp=CAU"
