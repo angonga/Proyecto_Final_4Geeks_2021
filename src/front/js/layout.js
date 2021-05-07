@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-import background from "../img/04_background.jpg";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import Register from "./pages/register";
