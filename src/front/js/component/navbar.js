@@ -104,10 +104,10 @@ export const Menu = props => {
 							</ul>
 						</NavItem>
 						<NavItem>
-							<NavLink href="/components/">¿Quiénes Somos?</NavLink>
+							<NavLink href="/quienes">¿Quiénes Somos?</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href="https://github.com/reactstrap/reactstrap">Contáctenos</NavLink>
+							<NavLink href="/contacto">Contáctenos</NavLink>
 						</NavItem>
 					</Nav>
 					<Link to="/login">
@@ -115,9 +115,8 @@ export const Menu = props => {
 							Inicio de Sesión
 						</button>
 					</Link>
-					<NavbarText />
 					<Link to="/register">
-						<button className="btn btn-outline-dark" type="button">
+						<button className="btn btn-outline-dark me-md-2" type="button">
 							Registro
 						</button>
 					</Link>

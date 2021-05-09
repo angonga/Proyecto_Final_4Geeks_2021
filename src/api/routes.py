@@ -4,8 +4,10 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
+from flask_cors import CORS
 
 api = Blueprint('api', __name__)
+CORS(api)
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -27,17 +29,17 @@ def register():
     password = request.json['password']
     confirm_password = request.json['confirm_password']
     # inputs validation
-    if email is None:
+    if not email:
         return jsonify({"msg": "Por favor ingrese su correo electrónico"}), 400
-    if phone is None:
+    if not phone:
         return jsonify({"msg": "Por favor ingrese su número de teléfono"}), 400
-    if name is None:
+    if not name:
         return jsonify({"msg": "Por favor ingrese su nombre"}), 400
-    if last_name is None:
+    if not last_name:
         return jsonify({"msg": "Por favor ingrese sus apellidos"}), 400
-    if password is None:
+    if not password:
         return jsonify({"msg": "Por favor ingrese su contraseña"}), 400
-    if confirm_password is None:
+    if not confirm_password:
         return jsonify({"msg": "Por favor confirme su contraseña"}), 400
     # busca usuario en BBDD
     user = User.query.filter_by(email=email).first()
@@ -49,7 +51,7 @@ def register():
         print("-----------")
         print(role)
         print("-----------")
-        if role =="true":
+        if role ==True:
             role="vendor"
         else:
             role="client"
@@ -76,13 +78,13 @@ def update_profile():
         description = request.json['description']
         profile_picture  = request.json['profile_picture']
         criminal_record = request.json['criminal_record']
-        if description is None:
+        if not description:
             is_active = False
             return jsnoify({"msg": "Para la activación de su perfil, requerimos que ingrese una breve descripción de su experiencia y de sus trabajos realizados"}), 400
-        if profile_picture  is None:
+        if not profile_picture:
             is_active = False
             return jsnoify({"msg": "Para la activación de su perfil, requerimos que por favor adjunte una foto de perfil, idealmente con fondo blanco"}), 400
-        if criminal_record is None:
+        if not criminal_record:
             is_active = False
             return jsnoify({"msg": "Su hoja de delincuencia debe ser adjuntada en formato PDF para la activación de su perfil"}), 400
         # once the vendor has completed his information, his profile will be activated

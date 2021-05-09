@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 class Recuperacion extends React.Component {
 	state = {
-		abierto: false
+		abierto: true
 	};
 
 	abrirModal = () => {
@@ -21,13 +21,13 @@ class Recuperacion extends React.Component {
 		};
 		return (
 			<>
-				<div className="principal">
+				{/* <div className="principal">
 					<div className="secundario">
 						<Button color="success" onClick={this.abrirModal}>
 							Recuperar Contraseña
 						</Button>
 					</div>
-				</div>
+				</div> */}
 
 				<Modal id="modal" isOpen={this.state.abierto} style={modalStyles}>
 					<ModalHeader>Recuperar Contraseña</ModalHeader>

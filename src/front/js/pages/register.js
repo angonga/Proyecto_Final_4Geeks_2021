@@ -1,79 +1,107 @@
-import React from "react";
-//import TextField from '@material-ui/core/TextField';
-//import Autocomplete from '@material-ui/lab/Autocomplete';
+import React, { useState, useContext } from "react";
 import "../../styles/register.css";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
+import { Context } from "../store/appContext";
 
-class Register extends React.Component {
-	state = {
-		abierto: true
+const Register = () => {
+	const [abierto, setAbierto] = useState(true);
+	//crear estado para el campo email
+	const [email, setEmail] = useState("");
+	const [rol, setRol] = useState("");
+	const [data, setData] = useState({
+		role: false
+	});
+	const { store, actions } = useContext(Context);
+	console.log(email);
+	console.log(rol);
+
+	const handleChange = e => {
+		console.log(e.target.name);
+		setData({ ...data, [e.target.name]: e.target.value });
 	};
-	abrirModal = () => {
-		this.setState({ abierto: !this.state.abierto });
+
+	const onSubmit = e => {
+		actions.register(data);
 	};
-	render() {
-		const modalStyles = {
-			position: "absolute",
-			top: "50%",
-			left: "50%",
-			transform: "translate(-50%, -50%)"
-		};
-		return (
-			<>
-				{/* <div className="principal">
-					<div className="secundario">
-						<Button color="success" onClick={this.abrirModal}>
-							Registrarse
-						</Button>
-					</div>
-				</div> */}
-				<Modal id="modal" isOpen={this.state.abierto} style={modalStyles}>
-					<ModalHeader>
-						Formulario de Registro
-						<div style={{ fontSize: "16px", float: "right", marginLeft: "150px", marginTop: "5px" }}>
-							<FormGroup check>
-								<Label check>
-									<Input type="checkbox" /> Registro como proveedor?
-								</Label>
-							</FormGroup>
-						</div>
-					</ModalHeader>
-					<ModalBody size="lg">
-						<FormGroup style={{ width: "225px" }}>
-							<Label for="email">Email</Label>
-							<Input type="text" id="email" />
-						</FormGroup>
-						<FormGroup style={{ width: "225px", float: "right", marginTop: "-87px" }}>
-							<Label for="phone">Teléfono</Label>
-							<Input type="text" id="telefono" />
-						</FormGroup>
-						<FormGroup style={{ width: "225px" }}>
-							<Label for="password">Contraseña</Label>
-							<Input type="text" id="password" />
-						</FormGroup>
-						<FormGroup style={{ width: "225px", float: "right", marginTop: "-85px" }}>
-							<Label for="password2">Confirmar Contraseña</Label>
-							<Input type="text" id="password2" />
-						</FormGroup>
-						<FormGroup style={{ width: "225px", marginTop: "-87px" }}>
-							<Label for="phone">Nombre</Label>
-							<Input type="text" id="nombre" />
-						</FormGroup>
-						<FormGroup style={{ width: "225px", marginTop: "-87px" }}>
-							<Label for="phone">Apellido</Label>
-							<Input type="text" id="apellido" />
-						</FormGroup>
-					</ModalBody>
-					<ModalFooter>
-						<Button color="primary">Enviar</Button>
-						<Button color="secondary" onClick={this.abrirModal}>
-							Cancelar
-						</Button>
-					</ModalFooter>
-				</Modal>
-			</>
-		);
-	}
-}
+
+	const modalStyles = {
+		position: "absolute",
+		top: "50%",
+		left: "50%",
+		transform: "translate(-50%, -50%)"
+	};
+
+	const abrirModal = () => {
+		setAbierto(!abierto);
+	};
+	// const sendForm = () => {
+	// 	alert(email);
+	// };
+	console.log(data);
+	return (
+		<Modal id="modal" isOpen={abierto} style={modalStyles}>
+			<ModalHeader>
+				{/* // Registro //{" "} */}
+				<div style={{ fontSize: "16px", float: "right", marginLeft: "150px", marginTop: "5px" }}>
+					<FormGroup check>
+						<Label check>
+							<Input
+								type="checkbox"
+								onChange={e => {
+									console.log(e);
+									setData({ ...data, role: !e.target.checked ? false : true });
+								}}
+							/>{" "}
+							Registro como proveedor?
+						</Label>
+					</FormGroup>
+				</div>
+			</ModalHeader>
+
+			<ModalBody>
+				<FormGroup style={{ width: "225px", float: "left", marginRight: "10px" }}>
+					<Label for="email">Email</Label>
+					<Input type="text" name="email" id="email" onChange={handleChange} />
+				</FormGroup>
+
+				<FormGroup style={{ width: "225px", float: "left" }}>
+					<Label for="phone">Phone</Label>
+					<Input type="text" id="phone" name="phone" onChange={handleChange} />
+				</FormGroup>
+
+				<FormGroup style={{ width: "225px", float: "left", marginRight: "10px" }}>
+					<Label for="phone">Nombre</Label>
+					<Input type="text" id="nombre" name="name" onChange={handleChange} />
+				</FormGroup>
+
+				<FormGroup style={{ width: "225px", float: "left" }}>
+					<Label for="phone">Apellido</Label>
+					<Input type="text" id="apellido" name="last_name" onChange={handleChange} />
+				</FormGroup>
+
+				<FormGroup style={{ width: "225px", float: "left", marginRight: "10px" }}>
+					<Label for="password">Password</Label>
+					<Input type="text" id="password" name="password" onChange={handleChange} />
+				</FormGroup>
+
+				<FormGroup style={{ width: "225px", float: "left" }}>
+					<Label for="password2">Confirm Password</Label>
+					<Input type="text" id="password2" name="confirm_password" onChange={handleChange} />
+				</FormGroup>
+			</ModalBody>
+
+			<ModalFooter>
+				<Button color="primary" onClick={onSubmit}>
+					Send
+				</Button>
+
+				<Button color="secondary" onClick={abrirModal}>
+					Cancel
+				</Button>
+			</ModalFooter>
+		</Modal>
+	);
+};
+
 export default Register;
