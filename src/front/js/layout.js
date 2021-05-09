@@ -10,7 +10,7 @@ import injectContext from "./store/appContext";
 import { Quienes } from "./pages/quienes";
 import { Contacto } from "./pages/contacto";
 import { PerfilUsuario } from "./pages/perfilUsuario";
-import PerfilProveedor from "./pages/perfilProveedor";
+import DashboardProveedor from "./pages/dashboardProveedor";
 import { Navbar } from "./component/navbar";
 import "../styles/layout.scss";
 import { Menu } from "./component/navbar.js";
@@ -27,7 +27,7 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="container d-flex flex-column">
+		<div className="container d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Menu />
@@ -50,8 +50,8 @@ const Layout = () => {
 							<PerfilUsuario />
 						</Route>
 
-						<Route exact path="/perfilProveedor">
-							<PerfilProveedor />
+						<Route exact path="/dashboardProveedor">
+							<DashboardProveedor />
 						</Route>
 
 						<Route exact path="/editProveedor">

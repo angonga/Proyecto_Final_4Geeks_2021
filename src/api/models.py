@@ -4,7 +4,7 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    role = db.Column(db.String(80), nullable=False)
+    role = db.Column(db.String(80), nullable=False) #agregar el valor false por defecto
     email = db.Column(db.String(120), nullable=False)
     phone = db.Column(db.String(120), nullable=False)
     password = db.Column(db.String(80), nullable=False)

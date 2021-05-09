@@ -6,18 +6,12 @@ export const Contacto = _props => {
 	return (
 		<div>
 			<Card>
-				<CardImg
-					top
-					width="236"
-					height="304"
-					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaIhgJ7LP5OQZB7_UST6tafayq4Jd6zBfziQ&usqp=CAU"
-					alt="Card image cap"
-				/>
+				<CardImg top width="236" height="304" src="" alt="Card image cap" />
 				<CardBody>
 					<Form>
 						<FormGroup row>
 							<Label for="nombre" sm={3} size="default">
-								NOMBRE.
+								Nombre
 							</Label>
 							<Col sm={7}>
 								<Input type="text" name="text" id="text" />
@@ -33,7 +27,7 @@ export const Contacto = _props => {
 						</FormGroup>
 						<FormGroup row>
 							<Label for="comentarios" sm={3} size="1117px">
-								COMENTARIOS
+								Comentarios
 							</Label>
 							<Col sm={7} display="table" width="">
 								<Input type="textarea" name="text" id="text" />

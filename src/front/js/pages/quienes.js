@@ -1,86 +1,73 @@
 import React from "react";
 //import { Context } from "../store/appContext";
 //import rigoImageUrl from "../../img/rigo-baby.jpg";
-//import "../../styles/home.scss";
+//import "../../styles/quienes.css";
+import sergio from "../../img/sergio.jpeg";
+import andrea from "../../img/andrea.jpg";
+import geovanny from "../../img/giovanni.jpeg";
+import karen from "../../img/karen.jpeg";
 import { Card, Button, CardImg, CardTitle, CardSubtitle, CardBody } from "reactstrap";
-
 export const Quienes = _props => {
 	return (
-		<div>
-			<p className="font-italic font-weight-bold text-info">
-				<h1 align="center">QUIENES SOMOS.</h1>
-			</p>
+		<div container>
+			<br />
+			<br />
+			<p className="font-italic font-weight-bold text-info text-center">
+				Calle 4 somos un grupo de visionarios que busca profesionalizar a los trabajadores
+				independientes,ofreciendóles a nuestros usuarios poder obtener los servicios que necesiten,
+				garantizándoles confianza y seguridad en el personal que contrate.
+			</p>{" "}
 			<ul>
-				<div className="row justify-content-around">
-					<div className="col-4">
+				<div className="row justify-content text-center">
+					<div className="col-5">
 						<Card>
-							<CardImg
-								top
-								width="100%"
-								src="https://mail.google.com/mail/u/0?ui=2&ik=016633df5d&attid=0.5&permmsgid=msg-a:r3691995154495253232&th=17909b7d8fc99e40&view=att&disp=safe&realattid=ii_knxaxdlr3"
-								alt="Card image cap"
-							/>
+							<CardImg top width="200px" height="200px" src={andrea} alt="Card image cap" />
 							<CardBody>
-								<CardTitle tag="h5">Nombre</CardTitle>
+								<CardTitle tag="h5">Andrea Gonzalez </CardTitle>
 								<CardSubtitle tag="h6" className="mb-2 text-muted">
-									Descripcion personal
+									Ingeniera Industrial
 								</CardSubtitle>
-								<Button>Contactese</Button>
+								<Button>Contactar</Button>
 							</CardBody>
 						</Card>
 					</div>
-					<div className="col-4">
+					<div className="col-5">
 						<Card>
-							<CardImg
-								top
-								width="100%"
-								src="https://mail.google.com/mail/u/0?ui=2&ik=016633df5d&attid=0.5&permmsgid=msg-a:r3691995154495253232&th=17909b7d8fc99e40&view=att&disp=safe&realattid=ii_knxaxdlr3"
-								alt="Card image cap"
-							/>
+							<CardImg top width="200px" height="200px" src={sergio} alt="Card image cap" />
 							<CardBody>
-								<CardTitle tag="h5">Nombre</CardTitle>
+								<CardTitle tag="h5">Sergio Baldioceda</CardTitle>
 								<CardSubtitle tag="h6" className="mb-2 text-muted">
-									Descripcion personal
+									Ingeniero Informatica
 								</CardSubtitle>
-								<Button>Contactese</Button>
+								<Button>Contactar</Button>
 							</CardBody>
 						</Card>
 					</div>
 				</div>
 			</ul>
 			<ul>
-				<div className="row justify-content-around">
-					<div className="col-4">
+				<div className="row justify-content">
+					<div className="col-5">
 						<Card>
-							<CardImg
-								top
-								width="100%"
-								src="https://mail.google.com/mail/u/0?ui=2&ik=016633df5d&attid=0.5&permmsgid=msg-a:r3691995154495253232&th=17909b7d8fc99e40&view=att&disp=safe&realattid=ii_knxaxdlr3"
-								alt="Card image cap"
-							/>
+							<CardImg top width="200px" height="200px" src={geovanny} alt="Card image cap" />
 							<CardBody>
-								<CardTitle tag="h5">Nombre</CardTitle>
+								<CardTitle tag="h5">Giovanni Chinchilla </CardTitle>
 								<CardSubtitle tag="h6" className="mb-2 text-muted">
-									Descripcion personal
+									Ingeniero Informatica
 								</CardSubtitle>
-								<Button>Contactese</Button>
+								<Button>Contactar</Button>
 							</CardBody>
 						</Card>
 					</div>
-					<div className="col-4">
+					<div className="col-5">
 						<Card>
-							<CardImg
-								top
-								width="100%"
-								src="https://mail.google.com/mail/u/0?ui=2&ik=016633df5d&attid=0.5&permmsgid=msg-a:r3691995154495253232&th=17909b7d8fc99e40&view=att&disp=safe&realattid=ii_knxaxdlr3"
-								alt="Card image cap"
-							/>
+							<CardImg top width="200px" height="200px" src={karen} alt="Card image cap" />
 							<CardBody>
-								<CardTitle tag="h5">Nombre</CardTitle>
+								<CardTitle tag="h5">Karen Aguilar</CardTitle>
 								<CardSubtitle tag="h6" className="mb-2 text-muted">
-									Descripcion personal
+									Contadora Pública
 								</CardSubtitle>
-								<Button>Contactese</Button>
+								<Button>Contactar</Button>
 							</CardBody>
 						</Card>
 					</div>

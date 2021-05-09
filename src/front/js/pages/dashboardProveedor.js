@@ -9,12 +9,12 @@ import DoughnutChart from "../component/DoughnutChart";
 
 registerLocale("es", es);
 
-function perfilProveedor() {
+function dashboardProveedor() {
 	const [startDate, setStartDate] = useState(new Date());
 	const [endDate, setEndDate] = useState(new Date());
 
 	return (
-		<div style={{ marginLeft: "350px", marginTop: "25px" }} className="container-fluid">
+		<div style={{ marginLeft: "350px", marginTop: "25px" }} className="container">
 			<h1 style={{ float: "left" }}>Trabajos pendientes:</h1>
 			<div style={{ float: "left", marginLeft: "400px" }}>
 				<button type="button" className="btn btn-info">
@@ -142,4 +142,4 @@ function perfilProveedor() {
 	);
 }
 
-export default perfilProveedor;
+export default dashboardProveedor;
