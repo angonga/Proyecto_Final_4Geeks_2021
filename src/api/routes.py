@@ -5,6 +5,7 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+from flask_jwt_extended import jwt_required, create_access_token
 
 api = Blueprint('api', __name__)
 CORS(api)
@@ -101,16 +102,27 @@ def login():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
     # valida si estan vacios los ingresos
-    if email is None:
+    if not email:
         return jsonify({"msg": "Por favor ingrese su correo electrónico"}), 400
-    if password is None:
+    if not password:
         return jsonify({"msg": "Por favor ingrese su contraseña"}), 400
     # para proteger contraseñas usar hashed_password
     # busca usuario en BBDD
     user = User.query.filter_by(email=email, password=password).first()
-    if user is None:
+    if not user:
         return jsonify({"msg": "La contraseña o el correo ingresado es invalido"}), 401
     else:
         # crear token
         my_token = create_access_token(identity=user.id)
         return jsonify({"token": my_token})
+
+@api.route("/protected", methods=["GET", "POST"])
+# protege ruta con esta funcion
+@jwt_required()
+def protected():
+    # busca la identidad del token
+    current_id = get_jwt_identity()
+    # busca usuarios en base de datos
+    user = User.query.get(current_id)
+    print(user)
+    return jsonify({"id": user.id, "email": user.email}), 200

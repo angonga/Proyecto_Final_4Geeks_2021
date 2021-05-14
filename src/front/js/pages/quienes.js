@@ -18,7 +18,7 @@ export const Quienes = _props => {
 				garantizándoles confianza y seguridad en el personal que contrate.
 			</p>{" "}
 			<ul>
-				<div className="row justify-content text-center">
+				<div className="row justify-content text-center" style={{ marginLeft: "100px" }}>
 					<div className="col-5">
 						<Card>
 							<CardImg top width="200px" height="200px" src={andrea} alt="Card image cap" />
@@ -46,7 +46,7 @@ export const Quienes = _props => {
 				</div>
 			</ul>
 			<ul>
-				<div className="row justify-content">
+				<div className="row justify-content text-center" style={{ marginLeft: "100px" }}>
 					<div className="col-5">
 						<Card>
 							<CardImg top width="200px" height="200px" src={geovanny} alt="Card image cap" />
