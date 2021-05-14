@@ -14,7 +14,7 @@ function dashboardProveedor() {
 	const [endDate, setEndDate] = useState(new Date());
 
 	return (
-		<div style={{ marginLeft: "350px", marginTop: "25px" }} className="container">
+		<div style={{ marginLeft: "100px", marginTop: "75px" }}>
 			<h1 style={{ float: "left" }}>Trabajos pendientes:</h1>
 			<div style={{ float: "left", marginLeft: "400px" }}>
 				<button type="button" className="btn btn-info">
