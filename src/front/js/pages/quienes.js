@@ -12,14 +12,14 @@ export const Quienes = _props => {
 		<div container>
 			<br />
 			<br />
-			<p className="font-italic font-weight-bold text-info text-center">
-				Calle 4 somos un grupo de visionarios que busca profesionalizar a los trabajadores
-				independientes,ofreciendóles a nuestros usuarios poder obtener los servicios que necesiten,
-				garantizándoles confianza y seguridad en el personal que contrate.
-			</p>{" "}
+			<h4 className="font-italic font-weight-bold text-info text-center py-5">
+				Calle4 es un plataforma de servicios que buscar conectar a proveedores de servicios con potenciales
+				clientes, profesionalizando a los trabajadores independientes y la vez garantizando a nuestros usuarios
+				un servicio de confianza, no solo a través de nuestra plataforma sino con personal que contrate.
+			</h4>{" "}
 			<ul>
-				<div className="row justify-content text-center" style={{ marginLeft: "100px" }}>
-					<div className="col-5">
+				<div className="row pb-5">
+					<div className="col">
 						<Card>
 							<CardImg top width="200px" height="200px" src={andrea} alt="Card image cap" />
 							<CardBody>

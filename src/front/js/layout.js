@@ -10,9 +10,10 @@ import injectContext from "./store/appContext";
 import { Quienes } from "./pages/quienes";
 import { Contacto } from "./pages/contacto";
 import { PerfilUsuario } from "./pages/perfilUsuario";
+import PerfilProveedor from "./pages/perfilProveedor";
 import DashboardProveedor from "./pages/dashboardProveedor";
 import { Navbar } from "./component/navbar";
-import "../styles/layout.scss";
+// import "../styles/layout.scss";
 import { Menu } from "./component/navbar.js";
 import { Footer } from "./component/footer";
 import Recuperacion from "./pages/recuperacion";
@@ -49,7 +50,9 @@ const Layout = () => {
 						<Route exact path="/perfilUsuario">
 							<PerfilUsuario />
 						</Route>
-
+						<Route exact path="/perfilProveedor">
+							<PerfilProveedor />
+						</Route>
 						<Route exact path="/dashboardProveedor">
 							<DashboardProveedor />
 						</Route>

@@ -3,45 +3,37 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } fr
 import { Col, Form, FormGroup, Label, Input } from "reactstrap";
 
 export const Contacto = _props => {
+	const handleSubmit = e => {
+		console.log("handle submit");
+		// hacer fetch con datos para enviar el correo de contacto
+	};
+
 	return (
-		<div>
-			<Card>
-				<CardImg top width="236" height="304" src="" alt="Card image cap" />
-				<CardBody>
-					<Form>
-						<FormGroup row>
-							<Label for="nombre" sm={3} size="default">
-								Nombre
-							</Label>
-							<Col sm={7}>
-								<Input type="text" name="text" id="text" />
-							</Col>
-						</FormGroup>
-						<FormGroup row>
-							<Label for="exampleEmail" sm={3} size="default">
-								Email
-							</Label>
-							<Col sm={7}>
-								<Input type="email" name="email" id="exampleEmail" />
-							</Col>
-						</FormGroup>
-						<FormGroup row>
-							<Label for="comentarios" sm={3} size="1117px">
-								Comentarios
-							</Label>
-							<Col sm={7} display="table" width="">
-								<Input type="textarea" name="text" id="text" />
-							</Col>
-						</FormGroup>
-						<FormGroup row>
-							<Label for="enviar" sm={6} />
-							<Col sm={2}>
-								<Input type="text" name="text" id="text" placeholder="  ENVIAR " float="center" />
-							</Col>
-						</FormGroup>
-					</Form>
-				</CardBody>
-			</Card>
+		<div className="form-view">
+			<h1>Contacto</h1>
+			<form onSubmit={handleSubmit} style={{ width: "500px" }}>
+				<div className="mb-3">
+					<label htmlFor="exampleInputName" className="form-label">
+						Nombre
+					</label>
+					<input type="text" className="form-control" id="exampleInputName" aria-describedby="emailHelp" />
+				</div>
+				<div className="mb-3">
+					<label htmlFor="exampleInputEmail1" className="form-label">
+						Email
+					</label>
+					<input type="email" className="form-control" id="exampleInputEmail1" />
+				</div>
+				<div className="mb-3">
+					<label htmlFor="exampleInputComments1" className="form-label">
+						Commentarios
+					</label>
+					​<textarea rows="5" cols="70" className="form-control" id="exampleInputComments1" />
+				</div>
+				<button type="submit" className="btn btn-primary">
+					Enviar
+				</button>
+			</form>
 		</div>
 	);
 };
