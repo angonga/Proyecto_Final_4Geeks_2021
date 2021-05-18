@@ -14,14 +14,16 @@ function dashboardProveedor() {
 	const [endDate, setEndDate] = useState(new Date());
 
 	return (
-		<div style={{ marginLeft: "100px", marginTop: "75px" }}>
-			<h1 style={{ float: "left" }}>Trabajos pendientes:</h1>
-			<div style={{ float: "left", marginLeft: "400px" }}>
+		<div className="text-center">
+			<br />
+			<br />
+			<h1 className="text-left">Trabajos pendientes:</h1>
+			<div className="text-right">
 				<button type="button" className="btn btn-info">
 					Editar Perfil
 				</button>
 			</div>
-			<div style={{ marginTop: "35px", width: "750px" }}>
+			<div>
 				<table className="table table-striped">
 					<thead>
 						<tr>
@@ -65,41 +67,51 @@ function dashboardProveedor() {
 				</table>
 			</div>
 
-			<button style={{ marginTop: "50px" }} type="button" className="btn btn-info">
-				Buscar trabajos finalizados
-			</button>
 			<br />
-			<div style={{ marginTop: "25px", marginLeft: "100px", marginRight: "100px", float: "left" }}>
-				<h5>Fecha Inicio:</h5>
+			<div className="row">
+				<div className="col-sm">
+					<div>
+						<h5>Fecha Inicio:</h5>
 
-				<DatePicker
-					selected={startDate}
-					onChange={date => setStartDate(date)}
-					selectsStart
-					startDate={startDate}
-					endDate={endDate}
-					locale="es"
-					className="pickers"
-					dateFormat="dd 'de' MMMM 'de' yyyy"
-				/>
+						<DatePicker
+							selected={startDate}
+							onChange={date => setStartDate(date)}
+							selectsStart
+							startDate={startDate}
+							endDate={endDate}
+							locale="es"
+							className="pickers"
+							dateFormat="dd 'de' MMMM 'de' yyyy"
+						/>
+					</div>
+				</div>
+				<div className="col-sm">
+					{" "}
+					<button type="button" className="btn btn-info">
+						Buscar trabajos finalizados
+					</button>
+				</div>
+				<div className="col-sm">
+					{" "}
+					<div>
+						<h5>Fecha Final:</h5>
+						<DatePicker
+							selected={endDate}
+							onChange={date => setEndDate(date)}
+							selectsEnd
+							startDate={startDate}
+							endDate={endDate}
+							minDate={startDate}
+							locale="es"
+							className="pickers"
+							dateFormat="dd 'de' MMMM 'de' yyyy"
+						/>
+					</div>
+				</div>
 			</div>
-
-			<div style={{ marginTop: "25px", marginLeft: "100px" }}>
-				<h5>Fecha Final:</h5>
-				<DatePicker
-					selected={endDate}
-					onChange={date => setEndDate(date)}
-					selectsEnd
-					startDate={startDate}
-					endDate={endDate}
-					minDate={startDate}
-					locale="es"
-					className="pickers"
-					dateFormat="dd 'de' MMMM 'de' yyyy"
-				/>
-			</div>
-
-			<div style={{ marginTop: "35px", marginBottom: "50px", width: "750px" }}>
+			<br />
+			<br />
+			<div>
 				<table className="table table-striped">
 					<thead>
 						<tr>
@@ -130,11 +142,13 @@ function dashboardProveedor() {
 
 			<h3>Estadísticas</h3>
 			<div style={{ marginTop: "50px" }}>
-				<div style={{ float: "left", marginRight: "75px" }}>
+				<div style={{ float: "left" }}>
+					<DoughnutChart />
+				</div>
+				<div style={{ float: "left" }}>
 					<BarChart />
 				</div>
-
-				<div style={{ float: "left" }}>
+				<div style={{ float: "right" }}>
 					<DoughnutChart />
 				</div>
 			</div>

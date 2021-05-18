@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/navbar.scss";
+import logo_navbar from "../../img/logo_navbar.png";
+
 import {
 	Collapse,
 	Navbar,
@@ -26,103 +28,107 @@ export const Menu = props => {
 	const toggle = () => setIsOpen(!isOpen);
 
 	return (
-		<div className="container">
-			<Navbar fixed="top" className="container" color="light" light expand="md">
-				<NavbarBrand href="/">Calle4!</NavbarBrand>
-				<NavbarToggler onClick={toggle} />
-				<Collapse isOpen={isOpen} navbar>
-					<Nav className="mr-auto" navbar>
-						<NavItem>
-							<ul className="dropdown">
-								<li>
-									<a href="#">Servicios</a>
-									<ul>
-										<li>
-											<a href="#">Decoración</a>
-											<ul>
-												<li>
-													<a href="">Exteriores</a>
-												</li>
-												<li>
-													<a href="">Interiores</a>
-												</li>
-												<li>
-													<a href="">Paisajismo</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#">Remodelaciones</a>
-											<ul>
-												<li>
-													<a href="">Cerrajería</a>
-												</li>
-												<li>
-													<a href="">Electricidad</a>
-												</li>
-												<li>
-													<a href="">Pintura</a>
-												</li>
-												<li>
-													<a href="">Ventanería</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#">Servicios Domésticos</a>
-											<ul>
-												<li>
-													<a href="">Cocina</a>
-												</li>
-												<li>
-													<a href="">Limpieza de Vidrios</a>
-												</li>
-												<li>
-													<a href="">Limpieza General</a>
-												</li>
-												<li>
-													<a href="">Planchado</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#">Otros</a>
-											<ul>
-												<li>
-													<a href="">Cuido de mascotas</a>
-												</li>
-												<li>
-													<a href="">Seguridad Privada</a>
-												</li>
-												<li>
-													<a href="">Tapicería</a>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</NavItem>
-						<NavItem>
-							<NavLink href="/quienes">¿Quiénes Somos?</NavLink>
-						</NavItem>
-						<NavItem>
-							<NavLink href="/contacto">Contáctenos</NavLink>
-						</NavItem>
-					</Nav>
-					<Link to="/login">
-						<button className="btn btn-outline-dark me-md-2" type="button">
-							Inicio de Sesión
-						</button>
+		<Navbar fixed="top" className="bg-light bg-custom-2" expand="md">
+			<NavbarBrand href="/">
+				{/* <a className="navbar-brand" href="#"> */}
+				<img className="rounded-circle img-fluid" width="50px" height="50px" src={logo_navbar} alt="" />
+				{/* </a> */}
+			</NavbarBrand>
+			<NavbarToggler onClick={toggle} />
+			<Collapse className="d-flex justify-content-between" isOpen={isOpen} navbar>
+				<Nav className="d-flex align-items-center" navbar>
+					<NavItem>
+						<ul className="dropdown mr-2">
+							<li>
+								<a href="#">Servicios</a>
+								<ul>
+									<li>
+										<a href="#">Decoración</a>
+										<ul>
+											<li>
+												<a href="">Exteriores</a>
+											</li>
+											<li>
+												<a href="">Interiores</a>
+											</li>
+											<li>
+												<a href="">Paisajismo</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Remodelaciones</a>
+										<ul>
+											<li>
+												<a href="">Cerrajería</a>
+											</li>
+											<li>
+												<a href="">Electricidad</a>
+											</li>
+											<li>
+												<a href="">Pintura</a>
+											</li>
+											<li>
+												<a href="">Ventanería</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Servicios Domésticos</a>
+										<ul>
+											<li>
+												<a href="">Cocina</a>
+											</li>
+											<li>
+												<a href="">Limpieza de Vidrios</a>
+											</li>
+											<li>
+												<a href="">Limpieza General</a>
+											</li>
+											<li>
+												<a href="">Planchado</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Otros</a>
+										<ul>
+											<li>
+												<a href="">Cuido de mascotas</a>
+											</li>
+											<li>
+												<a href="">Seguridad Privada</a>
+											</li>
+											<li>
+												<a href="">Tapicería</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</NavItem>
+					<NavItem>
+						<Link className="mr-2 text-dark" to="/quienes">
+							¿Quiénes Somos?
+						</Link>
+					</NavItem>
+					<NavItem>
+						<Link className="text-dark" to="/contacto">
+							Contáctenos
+						</Link>
+					</NavItem>
+				</Nav>
+				<div>
+					<Link className="btn btn-dark mr-2" to="/login">
+						Inicio de Sesión
 					</Link>
-					<Link to="/register">
-						<button className="btn btn-outline-dark me-md-2" type="button">
-							Registro
-						</button>
+					<Link className="btn btn-dark" to="/register">
+						Registro
 					</Link>
-				</Collapse>
-			</Navbar>
-		</div>
+				</div>
+			</Collapse>
+		</Navbar>
 	);
 };
 Menu.propTypes = {

@@ -1,38 +1,32 @@
 import React from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import { Col, Form, FormGroup, Label, Input } from "reactstrap";
+import "../../styles/contacto.scss";
 
 export const Contacto = _props => {
-	const handleSubmit = e => {
-		console.log("handle submit");
-		// hacer fetch con datos para enviar el correo de contacto
-	};
-
 	return (
-		<div className="form-view">
-			<h1>Contacto</h1>
-			<form onSubmit={handleSubmit} style={{ width: "500px" }}>
-				<div className="mb-3">
-					<label htmlFor="exampleInputName" className="form-label">
-						Nombre
-					</label>
-					<input type="text" className="form-control" id="exampleInputName" aria-describedby="emailHelp" />
-				</div>
-				<div className="mb-3">
-					<label htmlFor="exampleInputEmail1" className="form-label">
-						Email
-					</label>
-					<input type="email" className="form-control" id="exampleInputEmail1" />
-				</div>
-				<div className="mb-3">
-					<label htmlFor="exampleInputComments1" className="form-label">
-						Commentarios
-					</label>
-					​<textarea rows="5" cols="70" className="form-control" id="exampleInputComments1" />
-				</div>
-				<button type="submit" className="btn btn-primary">
-					Enviar
-				</button>
+		<div className="prueba">
+			<form id="contact" action="" method="post">
+				<h3>¿Sugerencias o Preguntas?</h3>
+				<h4>No dudes en escribirnos</h4>
+				<fieldset>
+					<input placeholder="Tu nombre" type="text" required />
+				</fieldset>
+				<fieldset>
+					<input placeholder="Tu correo" type="email" required />
+				</fieldset>
+				<fieldset>
+					<input placeholder="Tu número de teléfono(optional)" type="tel" required />
+				</fieldset>
+
+				<fieldset>
+					<textarea placeholder="Digita tu mensaje...." required />
+				</fieldset>
+				<fieldset>
+					<button name="submit" type="submit" id="contact-submit" data-submit="...Enviando">
+						Enviar
+					</button>
+				</fieldset>
 			</form>
 		</div>
 	);

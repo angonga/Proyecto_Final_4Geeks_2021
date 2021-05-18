@@ -7,7 +7,7 @@ class Bienvenidos extends React.Component {
 		return (
 			<div>
 				<Wobble>
-					<h1>Bienvenidos a Calle 4!</h1>
+					<h1>Nosotros encontramos a los mejores... usted los contrata aquí</h1>
 				</Wobble>
 			</div>
 		);

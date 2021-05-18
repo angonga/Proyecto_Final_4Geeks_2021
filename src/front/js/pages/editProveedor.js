@@ -18,68 +18,112 @@ export const EditProveedor = () => {
 	};
 
 	return (
-		<div style={{ marginLeft: "250px" }} className="container-fluid">
-			<h1 style={{ float: "left" }}>Mis Datos:</h1>
+		<div>
+			<br />
+			<br />
+			<br />
+			<h2>Información General:</h2>
+			<div style={{ float: "right" }} />
+			<div className="row">
+				<div className="col-sm-8 text-left">
+					<div className="form-group">
+						<div style={{ width: "800px" }}>
+							<form style={{ float: "left", marginRight: "30px", marginTop: "25px", marginLeft: "30px" }}>
+								{/* <label htmlFor="nombre">Nombre: </label> */}
+								<input style={{ width: "250px" }} type="text" name="nombre" placeholder="Nombre" />
+							</form>
 
-			<div style={{ float: "left", marginLeft: "50px" }}>
-				<ImgUploader />
+							<form style={{ float: "left", marginRight: "30px", marginLeft: "30px" }}>
+								{/* <label htmlFor="apellido">Apellido: </label> */}
+								<input
+									style={{ width: "350px", marginTop: "25px" }}
+									type="text"
+									name="apellido"
+									placeholder="Apellido"
+								/>
+							</form>
+
+							<form style={{ float: "left", marginTop: "30px", marginRight: "30px", marginLeft: "30px" }}>
+								{/* <label htmlFor="email">Correo electrónico: </label> */}
+								<input style={{ width: "250px" }} type="text" name="email" placeholder="Email" />
+							</form>
+
+							<form style={{ float: "left", marginTop: "30px", marginLeft: "30px" }}>
+								{/* <label htmlFor="telefono">Teléfono: </label> */}
+								<input style={{ width: "350px" }} type="text" name="telefono" placeholder="Teléfono" />
+							</form>
+
+							<form style={{ float: "left", marginTop: "30px", marginRight: "30px", marginLeft: "30px" }}>
+								<SelectSearch
+									onChange={changeProvincia}
+									options={store.provincias}
+									value="value"
+									name="name"
+									placeholder="Provincia"
+									style={{ width: "100px" }}
+								/>
+							</form>
+							<form style={{ float: "left", marginTop: "30px" }}>
+								<SelectSearch
+									style={{ width: "100px" }}
+									options={store.cantones}
+									value="value"
+									name="name"
+									placeholder="Cantón"
+								/>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div className="col-sm-4 text-center">
+					<div>
+						<ImgUploader />
+					</div>
+				</div>
 			</div>
 
-			<div style={{ marginLeft: "100px", marginBottom: "50px", marginTop: "20px", float: "left" }}>
-				<button type="button" className="btn btn-info">
-					Cambiar Contraseña
-				</button>
+			<h3 style={{ marginTop: "25px" }}>Descripción:</h3>
+			<div className="row">
+				<div className="col-sm">
+					<div style={{ marginTop: "30px", float: "left", marginRight: "10px" }}>
+						<textarea style={{ width: "350px", height: "100px" }} />
+					</div>
+				</div>
+				<div className="col-sm text-center">
+					<p>Hoja Delincuencia</p>
+					<div
+						className="text-center"
+						style={{
+							width: "250px",
+							height: "100px",
+							borderRadius: "10px",
+
+							float: "left",
+
+							paddingLeft: "20px"
+						}}>
+						<FileUploader />
+					</div>
+				</div>
+				<div className="col-sm text-center">
+					<p>Cédula</p>
+					<div
+						className="text-center"
+						style={{
+							width: "250px",
+							height: "100px",
+							borderRadius: "10px",
+
+							float: "left",
+
+							paddingLeft: "20px"
+						}}>
+						<FileUploader />
+					</div>
+				</div>
 			</div>
 
-			<div style={{ marginLeft: "50px", marginTop: "250px", width: "800px" }}>
-				<form style={{ float: "left", marginRight: "30px" }}>
-					<input style={{ width: "350px" }} type="text" name="nombre" placeholder="Nombre" />
-				</form>
-
-				<form style={{ float: "left" }}>
-					<input style={{ width: "350px" }} type="text" name="apellido" placeholder="Apellido" />
-				</form>
-
-				<form style={{ float: "left", marginRight: "30px", marginTop: "25px" }}>
-					<input style={{ width: "350px" }} type="text" name="email" placeholder="Email" />
-				</form>
-
-				<form style={{ float: "left", marginTop: "25px" }}>
-					<input style={{ width: "350px" }} type="text" name="telefono" placeholder="Telefono" />
-				</form>
-
-				<SelectSearch
-					onChange={changeProvincia}
-					options={store.provincias}
-					value="value"
-					name="name"
-					placeholder="Provincia"
-				/>
-				<SelectSearch options={store.cantones} value="value" name="name" placeholder="Cantón" />
-			</div>
-
-			<h3 style={{ marginTop: "425px" }}>Descripción:</h3>
-
-			<div style={{ marginTop: "30px", float: "left", marginRight: "30px" }}>
-				<textarea style={{ width: "400px", height: "200px" }} />
-			</div>
-
-			<div
-				style={{
-					marginTop: "30px",
-					border: "2px solid black",
-					width: "400px",
-					height: "200px",
-					borderRadius: "10px",
-					backgroundColor: "#fa9a41",
-					float: "left",
-					paddingTop: "30px",
-					paddingLeft: "20px"
-				}}>
-				<FileUploader />
-			</div>
-
-			<h1 style={{ marginTop: "275px" }}>Servicios:</h1>
+			<h1 style={{ marginTop: "15px" }}>Servicios:</h1>
 
 			<div
 				style={{
@@ -224,7 +268,7 @@ export const EditProveedor = () => {
 					</div>
 				</div>
 			</div>
-			<div style={{ marginTop: "30px", marginLeft: "350px" }}>
+			<div>
 				<button type="button" className="btn btn-success">
 					Guardar
 				</button>

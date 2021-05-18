@@ -5,30 +5,18 @@ import PropTypes from "prop-types";
 class Cards extends Component {
 	render() {
 		return (
-			// <div className="container d-flex- justify-content-center">
-			// 	<div className="row justify-content-center">
-			// 		<div className="row justify-content-center">
-			// 			<div className="col-md-4">
-			// 				<Card />
-			// 			</div>
-			// 			<div className="col-md-4">
-			// 				<Card />
-			// 			</div>
-			// 			<div className="col-md-4">
-			// 				<Card />
-			// 			</div>
-			// 		</div>
-			// 	</div>
-			// </div>
-			<div className="row">
-				<div className="col-md">
+			<div className="container d-flex- justify-content-center">
+				<div className="row justify-content-center">
 					<Card />
-				</div>
-				<div className="col-md">
-					<Card />
-				</div>
-				<div className="col-md">
-					<Card />
+					{/* <div className="col-md-4"> */}
+					{/* <Card /> */}
+					{/* </div> */}
+					{/* <div className="col-md-4"> */}
+					{/* <Card /> */}
+					{/* </div> */}
+					{/* <div className="col-md-4"> */}
+					{/* <Card /> */}
+					{/* </div> */}
 				</div>
 			</div>
 		);
