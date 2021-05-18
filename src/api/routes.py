@@ -1,11 +1,17 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-from flask import Flask, request, jsonify, url_for, Blueprint
+from flask import Flask, request, jsonify, url_for, Blueprint, current_app
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from flask_jwt_extended import jwt_required, create_access_token
+# from flask_mail import Mail, Message
+import random
+import string
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 api = Blueprint('api', __name__)
 CORS(api)
@@ -28,7 +34,6 @@ def register():
     name = request.json['name']
     last_name = request.json['last_name']
     password = request.json['password']
-    confirm_password = request.json['confirm_password']
     # inputs validation
     if not email:
         return jsonify({"msg": "Por favor ingrese su correo electrónico"}), 400
@@ -40,8 +45,6 @@ def register():
         return jsonify({"msg": "Por favor ingrese sus apellidos"}), 400
     if not password:
         return jsonify({"msg": "Por favor ingrese su contraseña"}), 400
-    if not confirm_password:
-        return jsonify({"msg": "Por favor confirme su contraseña"}), 400
     # busca usuario en BBDD
     user = User.query.filter_by(email=email).first()
     if user:
@@ -62,8 +65,7 @@ def register():
         user.name = name
         user.last_name = last_name
         user.email = email
-        user.password = password
-        user.confirm_password = confirm_password   
+        user.password = password 
         user.is_active = True   
     db.session.add(user)    
     db.session.commit()
@@ -126,3 +128,69 @@ def protected():
     user = User.query.get(current_id)
     print(user)
     return jsonify({"id": user.id, "email": user.email}), 200
+
+@api.route("/resetpassword", methods=["POST"])
+def resetpassword():
+    email = request.json['email']
+    old_password = request.json['old_password']
+    new_password = request.json['new_password']
+    confirmed_password = request.json['confirmed_password']
+    # inputs validation
+    if not email:
+        return jsonify({"msg": "Por favor ingrese su correo electrónico"}), 400
+    if not old_password:
+        return jsonify({"msg": "Por favor ingrese su contraseña actual"}), 400
+    if old_password == new_password:
+        return jsonify({"msg": "La nueva contraseña debe ser distinta"}), 400
+    if new_password != confirmed_password:
+        return jsonify({"msg": "Ambas contraseñas deben ser iguales"}), 400
+    # if not confirm_password:
+    #     return jsonify({"msg": "Por favor confirme su contraseña"}), 400
+    # if not confirm_password:
+    #     return jsonify({"msg": "Por favor confirme su contraseña"}), 400
+    # busca usuario en BBDD
+    user = User.query.filter_by(email=email).first()
+    user.password = new_password  
+    db.session.commit()
+    return jsonify({"msg": "Su clave ha sido actualizada con éxito"}), 200
+
+#RECUPERACION CONTRASEÑA OLVIDADA 
+@api.route("/forgotpassword", methods=["POST"])
+def forgotpassword():
+    recover_email = request.json['email']
+    recover_password = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(8))
+    # recover_password = "ABFDI01zsfkj47"
+    if not recover_email:
+        return jsonify({"msg": "Por favor ingrese su correo electrónico"}), 400
+    user = User.query.filter_by(email=recover_email).first()
+    if user is None:
+        return jsonify({"msg": "El correo ingresado no existe en nuestros registros"}), 400
+    user.password = recover_password
+    db.session.commit()
+    # using SendGrid's Python Library
+    # https://github.com/sendgrid/sendgrid-python
+    message = Mail(
+        from_email='andre.gari.2991@gmail.com',
+        to_emails=recover_email,
+        subject='Contraseña Temporal para inicio de Sesión en Calle4',
+        html_content='<strong>Su contraseña temporal es la siguiente:</strong>'+recover_password)
+    try:
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(response.status_code)
+        # print(response.body)
+        # print(response.headers)
+    except Exception as e:
+        print(e.body)
+    return jsonify({"msg": "Su nueva clave ha sido enviada al correo electrónico ingresado"}), 200
+
+#CATEGORIES AND SERVICES
+@api.route("/catandservices", methods=["GET"])
+def get_catandservices():
+
+    allcategories = Categories.query.all()
+    allservices = Services.query.all()
+    allcharacters = list(map(lambda x: x.serialize(),allcharacters))
+
+    return jsonify(allcategories,allservices), 200
+

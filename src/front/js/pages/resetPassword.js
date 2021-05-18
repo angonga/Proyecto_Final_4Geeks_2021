@@ -32,15 +32,15 @@ class ResetPassword extends React.Component {
 					<ModalHeader>Cambiar Contraseña</ModalHeader>
 					<ModalBody>
 						<FormGroup style={{ width: "400px" }}>
-							<Label for="old">Old Password</Label>
+							<Label for="old">Contraseña Actual</Label>
 							<Input type="text" id="email" />
 						</FormGroup>
 						<FormGroup style={{ width: "400px" }}>
-							<Label for="new">New Password</Label>
+							<Label for="new">Nueva Contraseña</Label>
 							<Input type="text" id="email" />
 						</FormGroup>
 						<FormGroup style={{ width: "400px" }}>
-							<Label for="new2">Confirm New Password</Label>
+							<Label for="new2">Confirmar Nueva Contraseña</Label>
 							<Input type="text" id="email" />
 						</FormGroup>
 					</ModalBody>

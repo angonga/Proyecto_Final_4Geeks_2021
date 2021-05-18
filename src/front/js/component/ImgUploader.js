@@ -16,32 +16,34 @@ export class ImgUploader extends Component {
 	render() {
 		const { profileImg } = this.state;
 		return (
-			<div style={{ width: "250px" }} className="page">
-				<div style={{ width: "250px" }} className="container">
-					<p style={{ width: "150px", marginLeft: "50px" }} className="heading">
-						Add your Image
-					</p>
+			<div className="text-center">
+				<div>
 					<div className="img-holder">
 						<img src={profileImg} alt="" id="img" className="img" />
 					</div>
-					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
-					<div style={{ width: "100px" }} className="label">
+
+					<div className="label text-center">
 						<label
 							style={{
 								backgroundColor: "black",
 								color: "white",
-								width: "175px",
-								height: "30px",
+								width: "80px",
+								height: "40px",
 								borderRadius: "10px",
 								textAlign: "center",
-								marginTop: "5px",
-								marginLeft: "20px"
+								marginTop: "15px"
 							}}
-							className="image-upload"
+							className="text-center"
 							htmlFor="input">
-							Choose your Photo
+							Examinar
 						</label>
 					</div>
+
+					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
+
+					<button style={{ marginTop: "5px" }} type="button" className="btn btn-info">
+						Subir
+					</button>
 				</div>
 			</div>
 		);

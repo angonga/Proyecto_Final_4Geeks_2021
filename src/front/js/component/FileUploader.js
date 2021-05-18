@@ -52,8 +52,7 @@ class FileUploader extends Component {
 
 	render() {
 		return (
-			<div>
-				<h5>Suba su hoja de delincuencia aquí!!</h5>
+			<div className="text-center">
 				<div style={{ marginTop: "25px" }}>
 					<input type="file" onChange={this.onFileChange} />
 					<button type="button" className="btn btn-primary" onClick={this.onFileUpload}>

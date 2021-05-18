@@ -80,7 +80,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ cantones: arrayCantones });
 					});
 			}
-
 			// register: data => {
 			// 	// fetching data from the backend
 			// 	fetch(process.env.BACKEND_URL + "/api/register", {
@@ -97,8 +96,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// },
 			// login: data => {
 			// 	// fetching data from the backend
-			// 	// fetch(process.env.BACKEND_URL + "/api/login", {
-			// 	fetch("https://3001-brown-vulture-ydybxsfp.ws-us04.gitpod.io/api/login", {
+			// 	fetch(process.env.BACKEND_URL + "/api/login", {
+			// 		// fetch("https://3001-brown-vulture-ydybxsfp.ws-us04.gitpod.io/api/login", {
 			// 		method: "POST",
 			// 		body: JSON.stringify(data),
 			// 		headers: { "Content-Type": "application/json" }
