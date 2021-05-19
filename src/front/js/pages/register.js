@@ -119,6 +119,7 @@ export const Register = () => {
 	const [phone, setPhone] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [isProvider, setIsProvider] = useState(false);
 	const [auth, setAuth] = useState(false);
 
 	const handleSubmit = e => {
@@ -150,60 +151,70 @@ export const Register = () => {
 
 	const handleCheck = e => {
 		// e.preventDefault();
+		setIsProvider(!isProvider);
 		setRole(!role);
 	};
 
 	return (
-		<div className="mx-auto pt-5">
-			<h3>Registro</h3>
-			<form onSubmit={handleSubmit} style={{ width: "500px" }}>
-				<div className="mb-3">
-					<label htmlFor="vendor"> Deseas registrarte como proveedor de servicios?</label>
-					<input type="checkbox" name="checkbox" onChange={handleCheck} />
-					<p id="text" style={{ display: "none" }}>
-						Al registrarte como proveedor de servicios, deberás ingresar más datos personales e incluso,
-						adjuntar tu hoja de delincuencia. Gracias por querer ser parte de la mejor red de profesionales!
-					</p>
-				</div>
-				<div className="mb-3">
-					<label className="form-label">Correo Electrónico</label>
-					<input onChange={e => setEmail(e.target.value)} type="email" className="form-control" />
-				</div>
-				<div className="mb-3">
-					<label className="form-label">Nombre</label>
-					<input onChange={e => setName(e.target.value)} type="text" className="form-control" />
-				</div>
-				<div className="mb-3">
-					<label className="form-label">Apellidos</label>
-					<input onChange={e => setLastName(e.target.value)} type="text" className="form-control" />
-				</div>
-				<div className="mb-3">
-					<label className="form-label">Número de Teléfono</label>
-					<input onChange={e => setPhone(e.target.value)} type="text" className="form-control" />
-				</div>
-				<div className="mb-3">
-					<label className="form-label">Contraseña</label>
-					<input
-						onChange={e => setPassword(e.target.value)}
-						type="password"
-						className="form-control"
-						id="exampleInputPassword1"
-					/>
-				</div>
-				<div className="mb-3">
-					<label className="form-label">Confirmar Contraseña</label>
-					<input
-						onChange={e => setPassword(e.target.value)}
-						type="password"
-						className="form-control"
-						id="exampleInputPassword1"
-					/>
-				</div>
-				<button type="submit" className="btn btn-primary">
-					Enviar
-				</button>
-			</form>
-			{auth ? <Redirect to="/login" /> : null}
+		<div>
+			<br />
+			<br />
+			<div className="register mx-auto">
+				<h3>Registro</h3>
+				<form onSubmit={handleSubmit}>
+					<div className="mb-3">
+						<label htmlFor="vendor"> Deseas registrarte como proveedor de servicios?</label>
+						<input type="checkbox" name="checkbox" onChange={handleCheck} />
+						<p id="text" style={{ display: isProvider ? "block" : "none" }}>
+							<small>
+								<i>
+									Al registrarte como proveedor de servicios, deberás ingresar más datos personales e
+									incluso, adjuntar tu hoja de delincuencia. Gracias por querer ser parte de la mejor
+									red de profesionales!
+								</i>
+							</small>
+						</p>
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Correo Electrónico</label>
+						<input onChange={e => setEmail(e.target.value)} type="email" className="form-control" />
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Nombre</label>
+						<input onChange={e => setName(e.target.value)} type="text" className="form-control" />
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Apellidos</label>
+						<input onChange={e => setLastName(e.target.value)} type="text" className="form-control" />
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Número de Teléfono</label>
+						<input onChange={e => setPhone(e.target.value)} type="text" className="form-control" />
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Contraseña</label>
+						<input
+							onChange={e => setPassword(e.target.value)}
+							type="password"
+							className="form-control"
+							id="exampleInputPassword1"
+						/>
+					</div>
+					<div className="mb-3">
+						<label className="form-label">Confirmar Contraseña</label>
+						<input
+							onChange={e => setPassword(e.target.value)}
+							type="password"
+							className="form-control"
+							id="exampleInputPassword1"
+						/>
+					</div>
+					<button type="submit" className="btn btn-primary">
+						Enviar
+					</button>
+				</form>
+				{auth ? <Redirect to="/login" /> : null}
+			</div>
 		</div>
 	);
 };

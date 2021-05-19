@@ -19,7 +19,8 @@ import {
 	DropdownMenu,
 	DropdownItem,
 	Dropdown,
-	NavbarText
+	NavbarText,
+	Button
 } from "reactstrap";
 
 export const Menu = props => {
@@ -28,7 +29,7 @@ export const Menu = props => {
 	const toggle = () => setIsOpen(!isOpen);
 
 	return (
-		<Navbar fixed="top" className="bg-light bg-custom-2" expand="md">
+		<Navbar fixed="top" className="bg-light" expand="md">
 			<NavbarBrand href="/">
 				{/* <a className="navbar-brand" href="#"> */}
 				<img className="rounded-circle img-fluid" width="50px" height="50px" src={logo_navbar} alt="" />
@@ -120,12 +121,21 @@ export const Menu = props => {
 					</NavItem>
 				</Nav>
 				<div>
-					<Link className="btn btn-dark mr-2" to="/login">
-						Inicio de Sesión
-					</Link>
-					<Link className="btn btn-dark" to="/register">
-						Registro
-					</Link>
+					{" "}
+					{sessionStorage.getItem("my_token") ? (
+						<Button className="btn btn-dark mr-2" onClick={() => sessionStorage.removeItem("my_token")}>
+							Cerrar Sesión
+						</Button>
+					) : (
+						<>
+							<Link className="btn btn-dark mr-2" to="/login">
+								Inicio de Sesión
+							</Link>
+							<Link className="btn btn-dark" to="/register">
+								Registro
+							</Link>
+						</>
+					)}
 				</div>
 			</Collapse>
 		</Navbar>

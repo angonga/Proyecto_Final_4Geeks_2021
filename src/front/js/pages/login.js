@@ -67,6 +67,7 @@ import "../../styles/register.css";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "../../styles/login.scss";
 
 export const Login = () => {
 	const [email, setEmail] = useState("");
@@ -98,40 +99,55 @@ export const Login = () => {
 	};
 
 	return (
-		<div className="mx-auto pt-5">
-			<h3>Inicio de Sesión</h3>
-			<form onSubmit={handleSubmit} style={{ width: "500px" }}>
-				<div className="mb-3">
-					<label htmlFor="exampleInputEmail1" className="form-label">
-						Correo Electrónico
-					</label>
-					<input
-						onChange={e => setEmail(e.target.value)}
-						type="email"
-						className="form-control"
-						id="exampleInputEmail1"
-						aria-describedby="emailHelp"
-					/>
+		<div className="">
+			<div className="text-center mx-auto pt-5">
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<div className="login text-center">
+					<h3>Inicio de Sesión</h3>
+
+					<form onSubmit={handleSubmit}>
+						<div className="mb-3">
+							<label htmlFor="exampleInputEmail1" className="form-label">
+								Correo Electrónico
+							</label>
+							<input
+								onChange={e => setEmail(e.target.value)}
+								type="email"
+								className="form-control"
+								id="exampleInputEmail1"
+								aria-describedby="emailHelp"
+							/>
+						</div>
+						<div className="mb-3">
+							<label htmlFor="exampleInputPassword1" className="form-label">
+								Contraseña
+							</label>
+							<input
+								onChange={e => setPassword(e.target.value)}
+								type="password"
+								className="form-control"
+								id="exampleInputPassword1"
+							/>
+						</div>
+						<div>
+							<Link to="/recuperacion">Olvidó su contraseña?</Link>
+						</div>
+						<button type="submit" className="btn btn-primary">
+							Enviar
+						</button>
+					</form>
 				</div>
-				<div className="mb-3">
-					<label htmlFor="exampleInputPassword1" className="form-label">
-						Contraseña
-					</label>
-					<input
-						onChange={e => setPassword(e.target.value)}
-						type="password"
-						className="form-control"
-						id="exampleInputPassword1"
-					/>
-				</div>
-				<div>
-					<Link to="/recuperacion">Olvidó su contraseña?</Link>
-				</div>
-				<button type="submit" className="btn btn-primary">
-					Enviar
-				</button>
-			</form>
-			{auth ? <Redirect to="/perfilUsuario" /> : null}
+				{auth ? <Redirect to="/perfilUsuario" /> : null}
+				{/* {store.currrentUser && store.currrentUser.role === "vendor" ? (
+					<Redirect to="/editProveedor" />
+				) : (
+					<Redirect to="/perfilUsuario" />
+				)} */}
+			</div>
 		</div>
 	);
 };
