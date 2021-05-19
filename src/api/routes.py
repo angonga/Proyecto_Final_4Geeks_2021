@@ -129,6 +129,17 @@ def protected():
     print(user)
     return jsonify({"id": user.id, "email": user.email}), 200
 
+@api.route("/me", methods=["GET"])
+# protege ruta con esta funcion
+@jwt_required()
+def show():
+    # busca la identidad del token
+    current_id = get_jwt_identity()
+    # busca usuarios en base de datos
+    user = User.query.get(current_id)
+    print(user)
+    return jsonify({"user": user}), 200
+
 @api.route("/resetpassword", methods=["POST"])
 def resetpassword():
     email = request.json['email']

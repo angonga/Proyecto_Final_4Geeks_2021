@@ -79,7 +79,7 @@ export const PerfilProveedor = () => {
 						marginTop: "20px",
 						borderRadius: "5px"
 					}}>
-					<p>Buen trabajo. Siempre mantiene muy limpia su área de trabajo y cobra lo justo.</p>
+					<p>Buen trabajo. Siempre mantiene muy limpiDa su área de trabajo y cobra lo justo.</p>
 					<img
 						src="https://3.bp.blogspot.com/-BQv_gSjB22U/WIRrwg5oM6I/AAAAAAABktM/yNXHpvY5hdscNrnXIIOXYKFskM8x2tN0wCLcB/s1600/3-5-star.png"
 						style={{ width: "100px" }}

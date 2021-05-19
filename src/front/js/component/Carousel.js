@@ -3,6 +3,7 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Card from "../component/Cards.jsx";
 import logo from "../../img/07_logo_1000x400.jpg";
+import Carou1 from "../../img/Carou1.png";
 
 class CarouselCp extends React.Component {
 	render() {
@@ -10,7 +11,7 @@ class CarouselCp extends React.Component {
 			<div className="d-flex justify-content-center">
 				<Carousel>
 					<Carousel.Item interval={3000}>
-						<img id="logo" src={logo} alt="Logo Calle4" />
+						<img id="logo" src={Carou1} alt="Logo Calle4" />
 						<Carousel.Caption>
 							<h3>First slide label</h3>
 							<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>

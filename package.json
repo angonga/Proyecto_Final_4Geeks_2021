@@ -88,6 +88,7 @@
 		"react-datepicker": "^3.8.0",
 		"react-dom": "^16.14.0",
 		"react-elastic-carousel": "^0.11.5",
+		"react-emotion-multi-step-form": "^0.10.0",
 		"react-native-imaged-carousel-card": "^0.1.1",
 		"react-native-snap-carousel": "^3.9.1",
 		"react-polyfills": "0.0.1",
