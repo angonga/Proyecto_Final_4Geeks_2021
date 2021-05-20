@@ -5,16 +5,22 @@ import iconosprofesionales from "../../img/iconosprofesionales.jpg";
 import SelectSearch from "react-select-search";
 import { Context } from "../store/appContext";
 import "../../styles/perfilUsuario.scss";
+
 export const PerfilUsuario = () => {
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
 		// actions.loadProvincias();
+		actions.loadServicios();
 	}, []);
 
 	const changeProvincia = id => {
 		actions.loadCantones(id);
 	};
+
+	// const changeServicio = id => {
+	// 	actions.loadServicios(id);
+	// };
 
 	return (
 		<div>
@@ -25,7 +31,14 @@ export const PerfilUsuario = () => {
 				<div className="col-4">
 					<div className="input-group">
 						<input type="text" className="form-control" placeholder="¿Qué servicio buscar?" />
-						<div className="input-group-append" />
+						<div className="input-group-append">
+							<SelectSearch
+								// onChange={changeProvincia}
+								options={store.servicios}
+								value="value"
+								name="name"
+							/>
+						</div>
 					</div>
 					<button style={{ marginTop: "25px", marginLeft: "375px" }} type="button" className="btn btn-info">
 						Buscar

@@ -64,7 +64,8 @@
 // export default Login;
 
 import "../../styles/register.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../styles/login.scss";
@@ -73,6 +74,7 @@ export const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [auth, setAuth] = useState(false);
+	const { store, actions } = useContext(Context);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -81,21 +83,7 @@ export const Login = () => {
 			email: email,
 			password: password
 		};
-
-		fetch("https://3001-brown-vulture-ydybxsfp.ws-us04.gitpod.io/api/login", {
-			method: "POST",
-			body: JSON.stringify(body),
-			headers: {
-				"Content-Type": "application/json"
-			}
-		})
-			.then(res => res.json())
-			.then(data => {
-				console.log(data);
-				setAuth(true);
-				sessionStorage.setItem("my_token", data.token);
-			})
-			.catch(err => console.log(err));
+		actions.login(body);
 	};
 
 	return (
@@ -141,12 +129,12 @@ export const Login = () => {
 						</button>
 					</form>
 				</div>
-				{auth ? <Redirect to="/perfilUsuario" /> : null}
-				{/* {store.currrentUser && store.currrentUser.role === "vendor" ? (
+				{/* {auth ? <Redirect to="/perfilUsuario" /> : null} */}
+				{store.currrentUser && store.currrentUser.role === "vendor" ? (
 					<Redirect to="/editProveedor" />
-				) : (
+				) : store.currrentUser && store.currrentUser.role === "client" ? (
 					<Redirect to="/perfilUsuario" />
-				)} */}
+				) : null}
 			</div>
 		</div>
 	);

@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.css";
 
 export const PerfilProveedor = () => {
 	return (
-		<div style={{ marginLeft: "100px", marginTop: "75px" }} className="container-fluid">
-			<div style={{ float: "left", marginRight: "175px" }}>
+		<div style={{ padding: "30px", marginLeft: "150px", marginTop: "78px" }} className="container">
+			<div style={{ float: "left", marginRight: "200px", marginLeft: "35px", marginTop: "50px" }}>
 				<div className="input-group">
 					<h1>Jose Antonio Rivas</h1>
 				</div>
@@ -16,13 +16,13 @@ export const PerfilProveedor = () => {
 					</p>
 				</div>
 			</div>
-			<div>
+			<div style={{ marginTop: "40px" }}>
 				<img
 					src="https://icon-library.com/images/construction-worker-icon-png/construction-worker-icon-png-7.jpg"
 					style={{ width: "150px", height: "150px", float: "left" }}
 				/>
 			</div>
-			<div style={{ marginTop: "175px" }}>
+			<div style={{ marginTop: "220px" }}>
 				<div style={{ float: "left", marginLeft: "-40px", marginRight: "10px" }}>
 					<h5>Calificación:</h5>
 				</div>
@@ -35,17 +35,17 @@ export const PerfilProveedor = () => {
 			</div>
 			<div>
 				<div style={{ float: "left", marginTop: "40px", marginLeft: "-200px" }}>
-					<button type="button" className="btn btn-info">
+					<button type="button" className="btn btn-dark">
 						Contratar
 					</button>
 				</div>
 				<div style={{ float: "left", marginTop: "40px", marginLeft: "-90px" }}>
-					<button type="button" className="btn btn-info">
+					<button type="button" className="btn btn-dark">
 						Contactar
 					</button>
 				</div>
 			</div>
-			<div style={{ float: "left", position: "absolute", marginTop: "75px" }}>
+			<div style={{ float: "left", position: "absolute", marginTop: "75px", marginLeft: "65px" }}>
 				<div>
 					<h3>Mis Servicios</h3>
 				</div>
@@ -60,7 +60,7 @@ export const PerfilProveedor = () => {
 					</ul>
 				</div>
 			</div>
-			<div style={{ float: "left", marginTop: "110px", marginLeft: "-230px" }}>
+			<div style={{ float: "left", marginTop: "30px", marginLeft: "500px" }}>
 				<div>
 					<h3>Mis Ultimas Reseñas:</h3>
 				</div>
@@ -89,7 +89,7 @@ export const PerfilProveedor = () => {
 			<div>
 				<img
 					src="https://vivehotels.com/cache/map/8375.png"
-					style={{ width: "600px", marginTop: "40px", marginLeft: "50px", marginBottom: "50px" }}
+					style={{ width: "600px", marginTop: "80px", marginLeft: "200px", marginBottom: "50px" }}
 				/>
 			</div>
 		</div>

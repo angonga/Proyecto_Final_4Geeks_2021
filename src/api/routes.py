@@ -184,7 +184,8 @@ def forgotpassword():
         from_email='andre.gari.2991@gmail.com',
         to_emails=recover_email,
         subject='Contraseña Temporal para inicio de Sesión en Calle4',
-        html_content='<strong>Su contraseña temporal es la siguiente:</strong>'+recover_password)
+        # html_content='<strong>Su contraseña temporal es la siguiente:</strong>'+recover_password+'<br/><strong>Por favor ingrese a este link:</strong>'+os.environ.get('BACKEND_URL')+ "/resetPassword")
+        html_content='<strong>Su contraseña temporal es la siguiente:</strong>'+recover_password+'<br/><strong>Por favor ingrese a este link:</strong>'+"https://3000-brown-vulture-ydybxsfp.ws-us04.gitpod.io/resetPassword")
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
@@ -195,13 +196,9 @@ def forgotpassword():
         print(e.body)
     return jsonify({"msg": "Su nueva clave ha sido enviada al correo electrónico ingresado"}), 200
 
-#CATEGORIES AND SERVICES
-@api.route("/catandservices", methods=["GET"])
-def get_catandservices():
-
-    allcategories = Categories.query.all()
+#SERVICES
+@api.route("/services", methods=["GET"])
+def getservices():
     allservices = Services.query.all()
-    allcharacters = list(map(lambda x: x.serialize(),allcharacters))
-
-    return jsonify(allcategories,allservices), 200
+    return jsonify(allservices), 200
 

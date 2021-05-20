@@ -14,7 +14,7 @@ function dashboardProveedor() {
 	const [endDate, setEndDate] = useState(new Date());
 
 	return (
-		<div className="text-center">
+		<div className="text-center container">
 			<br />
 			<br />
 			<h1 className="text-left">Trabajos pendientes:</h1>

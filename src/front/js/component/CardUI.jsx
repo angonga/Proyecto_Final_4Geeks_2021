@@ -1,5 +1,7 @@
 import React from "react";
-import img1 from "../../img/rigo-baby.jpg";
+import step1 from "../../img/step1.png";
+import step2 from "../../img/step2.png";
+import step3 from "../../img/step3.png";
 
 const Card = props => {
 	return (
@@ -7,7 +9,7 @@ const Card = props => {
 			<div className="col-md-4">
 				<div className="card text-center tarjeta">
 					<div className="overflow">
-						<img src={img1} alt="Image1" />
+						<img src={step1} alt="Image1" />
 					</div>
 					<div className="card-body text-dark cuerpo-tarjeta">
 						<h4 className="card-title">Paso 1</h4>
@@ -15,7 +17,7 @@ const Card = props => {
 							Dirígite al botón Buscar y filtra según el servicio, y la ubicación en donde requieres la
 							reparación
 						</p>
-						<a href="#" className="btn btn-outline-success">
+						<a href="/perfilUsuario" className="btn btn-dark">
 							Buscar Servicio
 						</a>
 					</div>
@@ -24,7 +26,7 @@ const Card = props => {
 			<div className="col-md-4">
 				<div className="card text-center tarjeta">
 					<div className="overflow">
-						<img src={img1} alt="Image1" />
+						<img src={step2} alt="Image1" />
 					</div>
 					<div className="card-body text-dark cuerpo-tarjeta">
 						<h4 className="card-title">Paso 2</h4>
@@ -32,7 +34,7 @@ const Card = props => {
 							Una vez seleccionado el perfil del profesional, se encontrará el botón Contactar,
 							presionándolo vas a tener la información del profesional.
 						</p>
-						<a href="#" className="btn btn-outline-success">
+						<a href="/perfilProveedor" className="btn btn-dark">
 							Contactar
 						</a>
 					</div>
@@ -42,7 +44,7 @@ const Card = props => {
 			<div className="col-md-4">
 				<div className="card text-center tarjeta">
 					<div className="overflow">
-						<img src={img1} alt="Image1" />
+						<img src={step3} alt="Image1" />
 					</div>
 					<div className="card-body text-dark cuerpo-tarjeta">
 						<h4 className="card-title">Paso 3</h4>
@@ -50,7 +52,7 @@ const Card = props => {
 							Para poder Contratar el servicio del profesional, te debes registar en el botón Registro, o
 							a su vez Iniciar Sesión. content.
 						</p>
-						<a href="#" className="btn btn-outline-success">
+						<a href="/register" className="btn btn-dark">
 							Registarse
 						</a>
 					</div>

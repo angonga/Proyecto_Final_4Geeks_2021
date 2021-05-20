@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
-from api.models import db, User
+from api.models import db, User, Services
 from api.routes import api
 from api.admin import setup_admin
 #from models import Person
@@ -45,30 +45,6 @@ app.register_blueprint(api, url_prefix='/api')
 app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY")
 jwt = JWTManager(app)
 
-# Send by email a random temp password
-# app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-# app.config['MAIL_PORT'] = 587
-# app.config['MAIL_USE_TLS'] = True
-# app.config['MMAIL_USE_SSL'] = True
-# app.config['MAIL_DEBUG'] = False
-# app.config['MAIL_USERNAME'] = 'calle4cr2021@gmail.com'
-# app.config['MAIL_PASSWORD'] = 'C@lle42021$$'
-# app.config['MAIL_DEFAULT_SENDER'] = 'calle4cr2021@gmail.com'
-# app.config['MAIL_MAX_EMAILS'] = None
-# # app.config['MAIL_SUPPRESS_SEND'] =
-# app.config['MAIL_ASCII_ATTACHMENTS'] = False
-# mail_settings = {
-#     "MAIL_SERVER": smtplib.SMTP('smtp-mail.outlook.com'),
-#     "MAIL_PORT":  587,
-#     "MAIL_USE_SSL": True,
-#     "MAIL_USE_TLS": True,
-#     "MAIL_USERNAME":  'calle4cr2021@outlook.com',
-#     "MAIL_PASSWORD": 'C@lle42021$$',
-#     "MAIL_DEFAULT_SENDER": 'calle4cr2021@outlook.com'
-# }
-# app.config.update(mail_settings)
-# mail = Mail(app)
-# app.mail= mail
 
 # Handle/serialize errors like a JSON object
 @app.errorhandler(APIException)

@@ -25,6 +25,7 @@ import {
 
 export const Menu = props => {
 	const [isOpen, setIsOpen] = useState(false);
+	const { store, actions } = useContext(Context);
 
 	const toggle = () => setIsOpen(!isOpen);
 
@@ -122,8 +123,8 @@ export const Menu = props => {
 				</Nav>
 				<div>
 					{" "}
-					{sessionStorage.getItem("my_token") ? (
-						<Button className="btn btn-dark mr-2" onClick={() => sessionStorage.removeItem("my_token")}>
+					{store.token || sessionStorage.getItem("my_token") ? (
+						<Button className="btn btn-dark mr-2" onClick={() => actions.logout()}>
 							Cerrar Sesión
 						</Button>
 					) : (
