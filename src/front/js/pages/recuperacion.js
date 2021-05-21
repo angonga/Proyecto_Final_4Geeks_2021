@@ -65,7 +65,7 @@ export const Recuperacion = () => {
 			email: email
 		};
 
-		fetch("https://3001-brown-vulture-ydybxsfp.ws-us04.gitpod.io/api/forgotpassword", {
+		fetch("https://3001-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/api/forgotpassword", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: {
@@ -87,7 +87,7 @@ export const Recuperacion = () => {
 			<form onSubmit={handleSubmit} style={{ width: "500px" }}>
 				<div className="mb-3">
 					<label htmlFor="exampleInputEmail1" className="form-label">
-						Email address
+						Correo Electrónico
 					</label>
 					<input
 						onChange={e => setEmail(e.target.value)}
@@ -97,7 +97,7 @@ export const Recuperacion = () => {
 						aria-describedby="emailHelp"
 					/>
 					<div id="emailHelp" className="form-text">
-						Well never share your email with anyone else.
+						Por favor ingrese el correo brindando, y siga las instrucciones.
 					</div>
 				</div>
 

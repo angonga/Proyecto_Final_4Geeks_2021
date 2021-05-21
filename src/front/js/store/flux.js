@@ -148,6 +148,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logout: () => {
 				setStore({ token: "" });
 				sessionStorage.removeItem("my_token");
+				location.replace("/");
 			},
 			loadUser: my_token => {
 				fetch("https://3001-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/api/me", {

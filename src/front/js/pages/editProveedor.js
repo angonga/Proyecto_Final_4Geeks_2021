@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from "react";
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import FileUploader from "../component/FileUploader";
 import ImgUploader from "../component/ImgUploader";
@@ -288,9 +287,11 @@ export const EditProveedor = () => {
 				</div>
 			</div>
 			<div className="p-2">
-				<button type="button" className="btn btn-dark">
-					Guardar
-				</button>
+				<a href="/dashboardProveedor">
+					<button type="button" className="btn btn-dark">
+						Guardar
+					</button>
+				</a>
 			</div>
 		</div>
 	);

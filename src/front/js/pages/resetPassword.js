@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label, Link } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
 class ResetPassword extends React.Component {
@@ -46,10 +46,15 @@ class ResetPassword extends React.Component {
 					</ModalBody>
 
 					<ModalFooter>
-						<Button color="secondary">Guardar</Button>
-						<Button color="secondary" onClick={this.abrirModal}>
+						<a href="/login">
+							<Button color="secondary">Guardar</Button>
+						</a>
+						<a href="/">
+							<Button color="secondary">Salir</Button>
+						</a>
+						{/* <Button color="secondary" onClick={"/"}>
 							Cancel
-						</Button>
+						</Button> */}
 					</ModalFooter>
 				</Modal>
 			</>

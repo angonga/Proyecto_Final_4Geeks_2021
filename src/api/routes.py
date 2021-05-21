@@ -16,14 +16,14 @@ from sendgrid.helpers.mail import Mail
 api = Blueprint('api', __name__)
 CORS(api)
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
+# @api.route('/hello', methods=['POST', 'GET'])
+# def handle_hello():
 
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend"
-    }
+#     response_body = {
+#         "message": "Hello! I'm a message that came from the backend"
+#     }
 
-    return jsonify(response_body), 200
+#     return jsonify(response_body), 200
 
 # REGISTER
 @api.route("/register", methods=["POST"])
@@ -189,7 +189,7 @@ def forgotpassword():
         to_emails=recover_email,
         subject='Contraseña Temporal para inicio de Sesión en Calle4',
         # html_content='<strong>Su contraseña temporal es la siguiente:</strong>'+recover_password+'<br/><strong>Por favor ingrese a este link:</strong>'+os.environ.get('BACKEND_URL')+ "/resetPassword")
-        html_content='<strong>Su contraseña temporal es la siguiente:</strong>'+recover_password+'<br/><strong>Por favor ingrese a este link:</strong>'+"https://3000-brown-vulture-ydybxsfp.ws-us04.gitpod.io/resetPassword")
+        html_content='<strong>Su contraseña temporal es la siguiente:</strong>'+recover_password+'<br/><strong>Por favor ingrese a este link:</strong>'+"https://3000-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/resetPassword")
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
