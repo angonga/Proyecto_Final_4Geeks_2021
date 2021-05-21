@@ -55,7 +55,7 @@ class FileUploader extends Component {
 			<div className="text-center">
 				<div style={{ marginTop: "25px" }}>
 					<input type="file" onChange={this.onFileChange} />
-					<button type="button" className="btn btn-primary" onClick={this.onFileUpload}>
+					<button type="button" className="btn btn-secondary" onClick={this.onFileUpload}>
 						Subir!
 					</button>
 				</div>

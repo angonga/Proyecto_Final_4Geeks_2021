@@ -7,6 +7,7 @@ import Card from "../component/Cards.jsx";
 import Bienvenidos from "../component/Bienvenidos.js";
 import Carousel from "../component/Carousel.js";
 import "../../styles/home.scss";
+import { Redirect } from "react-router-dom";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -15,20 +16,34 @@ export const Home = () => {
 		<div className="container text-center">
 			<br />
 			<br />
+			<br />
+			<br />
 			<img id="logo" className="img-fluid" src={logo} alt="Logo Calle4" />
-
+			<br />
+			<br />
+			<br />
 			<Bienvenidos />
+			<br />
+			<br />
+			<br />
 			<Carousel />
-
+			<br />
 			<div className="text-center mt-5">
 				<h1>¿Cómo ir a Calle 4?</h1>
-				<button className="btn btn-lg btn-primary ">Buscar Servicio</button>
+				{/* <button type="button" className="btn btn-secondary" href="/perfilUsuario">
+					Buscar Servicio
+				</button> */}
+				<a href="/perfilUsuario" className="btn btn-secondary">
+					Buscar Servicio
+				</a>
+				<br />
 				<br />
 				<br />
 				<div>
 					<Card />
 				</div>
-
+				<br />
+				<br />
 				{/* <div className="alert alert-info">{store.message || "Loading message from the backend..."}</div>
 				<p>
 					This boilerplate comes with lots of documentation:{" "}
@@ -40,3 +55,9 @@ export const Home = () => {
 		</div>
 	);
 };
+
+{
+	/* <Link to={"/perfilUsuario"} className="btn btn-secondary">
+					Buscar Servicio
+				</Link> */
+}

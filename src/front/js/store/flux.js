@@ -2,7 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			provincias: [],
-			cantones: []
+			cantones: [],
+			servicios: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -31,15 +32,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-
-			// loadProvincias: () => {
-			// 	fetch("https://ubicaciones.paginasweb.cr/provincias.json")
-			// 		.then(res => res.json())
-			// 		.then(async data => {
-			//             console.log("load provincias", data);
-			// 			setStore({ provincias: data });
-			// 		});
-			// },
+			loadServicios: () => {
+				// fetching data from the backend
+				fetch(process.env.BACKEND_URL + "/api/services")
+					.then(resp => resp.json())
+					.then(data => {
+						setStore({ servicios: data.servicios });
+						console.log("Servicios", data.servicios);
+					})
+					.catch(error => console.log("Error loading message from backend", error));
+			},
 			loadProvincias: () => {
 				const store = getStore();
 				fetch("https://ubicaciones.paginasweb.cr/provincias.json")
@@ -79,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 						setStore({ cantones: arrayCantones });
 					});
-			}
+			},
 			// register: data => {
 			// 	// fetching data from the backend
 			// 	fetch(process.env.BACKEND_URL + "/api/register", {
@@ -94,21 +96,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 		})
 			// 		.catch(error => console.log("Error loading message from backend", error));
 			// },
-			// login: data => {
-			// 	// fetching data from the backend
-			// 	fetch(process.env.BACKEND_URL + "/api/login", {
-			// 		// fetch("https://3001-brown-vulture-ydybxsfp.ws-us04.gitpod.io/api/login", {
-			// 		method: "POST",
-			// 		body: JSON.stringify(data),
-			// 		headers: { "Content-Type": "application/json" }
-			// 	})
-			// 		.then(res => res.json())
-			// 		// .then(resp => resp.json())
-			// 		.then(data => {
-			// 			console.log("data->", data);
-			// 		})
-			// 		.catch(error => console.log("Error loading data from backend", error));
-			// }
+			login: body => {
+				const actions = getActions();
+				fetch("https://3001-brown-vulture-ydybxsfp.ws-us04.gitpod.io/api/login", {
+					method: "POST",
+					body: JSON.stringify(body),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => res.json())
+					.then(data => {
+						setStore({ token: data.token });
+						actions.loadUser(data.token);
+						console.log(store);
+						sessionStorage.setItem("my_token", data.token);
+					})
+					.catch(err => console.log(err));
+			},
+			logout: () => {
+				setStore({ token: "" });
+				sessionStorage.removeItem("my_token");
+			},
+			loadUser: my_token => {
+				fetch("https://3001-brown-vulture-ydybxsfp.ws-us04.gitpod.io/api/me", {
+					headers: {
+						Authorization: `Bearer ${my_token}`
+					}
+				})
+					.then(res => res.json())
+					.then(data => {
+						setStore({ currentUser: data.user });
+						console.log(data);
+					})
+					.catch(err => console.log(err));
+			}
 		}
 	};
 };

@@ -1,10 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import JoseAntonio2 from "../../img/JoseAntonio2.png";
 
 export const PerfilProveedor = () => {
 	return (
-		<div style={{ marginLeft: "100px", marginTop: "75px" }} className="container-fluid">
-			<div style={{ float: "left", marginRight: "175px" }}>
+		<div style={{ padding: "30px", marginLeft: "150px", marginTop: "78px" }} className="container">
+			<div style={{ float: "left", marginRight: "200px", marginLeft: "35px", marginTop: "50px" }}>
 				<div className="input-group">
 					<h1>Jose Antonio Rivas</h1>
 				</div>
@@ -16,13 +17,10 @@ export const PerfilProveedor = () => {
 					</p>
 				</div>
 			</div>
-			<div>
-				<img
-					src="https://icon-library.com/images/construction-worker-icon-png/construction-worker-icon-png-7.jpg"
-					style={{ width: "150px", height: "150px", float: "left" }}
-				/>
+			<div style={{ marginTop: "40px" }}>
+				<img src={JoseAntonio2} style={{ width: "150px", height: "150px", float: "left" }} />
 			</div>
-			<div style={{ marginTop: "175px" }}>
+			<div style={{ marginTop: "220px" }}>
 				<div style={{ float: "left", marginLeft: "-40px", marginRight: "10px" }}>
 					<h5>Calificación:</h5>
 				</div>
@@ -35,17 +33,17 @@ export const PerfilProveedor = () => {
 			</div>
 			<div>
 				<div style={{ float: "left", marginTop: "40px", marginLeft: "-200px" }}>
-					<button type="button" className="btn btn-info">
+					<button type="button" className="btn btn-dark">
 						Contratar
 					</button>
 				</div>
 				<div style={{ float: "left", marginTop: "40px", marginLeft: "-90px" }}>
-					<button type="button" className="btn btn-info">
+					<button type="button" className="btn btn-dark">
 						Contactar
 					</button>
 				</div>
 			</div>
-			<div style={{ float: "left", position: "absolute", marginTop: "75px" }}>
+			<div style={{ float: "left", position: "absolute", marginTop: "75px", marginLeft: "65px" }}>
 				<div>
 					<h3>Mis Servicios</h3>
 				</div>
@@ -60,12 +58,15 @@ export const PerfilProveedor = () => {
 					</ul>
 				</div>
 			</div>
-			<div style={{ float: "left", marginTop: "110px", marginLeft: "-230px" }}>
+			<div style={{ float: "left", marginTop: "30px", marginLeft: "500px" }}>
 				<div>
 					<h3>Mis Ultimas Reseñas:</h3>
 				</div>
 				<div style={{ border: "2px solid black", textAlign: "center", padding: "10px", borderRadius: "5px" }}>
-					<p>Excelente Trabajo. Rapido y Cobra lo justo.</p>
+					<p>
+						Don Jose Antonio, realizó un excelente trabajo de pintura, mantuvo siempre mucha limpieza y fue
+						muy amable.
+					</p>
 					<img
 						src="https://3.bp.blogspot.com/-BQv_gSjB22U/WIRrwg5oM6I/AAAAAAABktM/yNXHpvY5hdscNrnXIIOXYKFskM8x2tN0wCLcB/s1600/3-5-star.png"
 						style={{ width: "100px" }}
@@ -79,7 +80,10 @@ export const PerfilProveedor = () => {
 						marginTop: "20px",
 						borderRadius: "5px"
 					}}>
-					<p>Buen trabajo. Siempre mantiene muy limpiDa su área de trabajo y cobra lo justo.</p>
+					<p>
+						Jose Antonio, realize un trabajo impecable en la remodelación de mi terraza, entendió muy lo que
+						quería, y fue muy efieciente en su trabajo.
+					</p>
 					<img
 						src="https://3.bp.blogspot.com/-BQv_gSjB22U/WIRrwg5oM6I/AAAAAAABktM/yNXHpvY5hdscNrnXIIOXYKFskM8x2tN0wCLcB/s1600/3-5-star.png"
 						style={{ width: "100px" }}
@@ -89,7 +93,7 @@ export const PerfilProveedor = () => {
 			<div>
 				<img
 					src="https://vivehotels.com/cache/map/8375.png"
-					style={{ width: "600px", marginTop: "40px", marginLeft: "50px", marginBottom: "50px" }}
+					style={{ width: "600px", marginTop: "80px", marginLeft: "200px", marginBottom: "50px" }}
 				/>
 			</div>
 		</div>

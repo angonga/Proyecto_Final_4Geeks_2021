@@ -5,6 +5,7 @@ import FileUploader from "../component/FileUploader";
 import ImgUploader from "../component/ImgUploader";
 import { Context } from "../store/appContext";
 import SelectSearch from "react-select-search";
+import "../../styles/editProveedor.scss";
 
 export const EditProveedor = () => {
 	const { store, actions } = useContext(Context);
@@ -18,10 +19,13 @@ export const EditProveedor = () => {
 	};
 
 	return (
-		<div>
-			<br />
-			<br />
-			<br />
+		<div
+			className="text-center container"
+			style={{
+				marginTop: "80px",
+				marginBottom: "50px",
+				padding: "10px"
+			}}>
 			<h2>Información General:</h2>
 			<div style={{ float: "right" }} />
 			<div className="row">
@@ -72,6 +76,15 @@ export const EditProveedor = () => {
 									placeholder="Cantón"
 								/>
 							</form>
+							<form style={{ float: "left", marginTop: "30px", marginLeft: "30px" }}>
+								{/* <label htmlFor="telefono">Teléfono: </label> */}
+								<input
+									style={{ width: "350px" }}
+									type="text"
+									name="Cédula"
+									placeholder="Digita su Cédula"
+								/>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -82,7 +95,9 @@ export const EditProveedor = () => {
 				</div>
 			</div>
 
-			<h3 style={{ marginTop: "25px" }}>Descripción:</h3>
+			<h3 className="text-left" style={{ marginTop: "25px", marginLeft: "125px" }}>
+				Descripción:
+			</h3>
 			<div className="row">
 				<div className="col-sm">
 					<div style={{ marginTop: "30px", float: "left", marginRight: "10px" }}>
@@ -122,154 +137,158 @@ export const EditProveedor = () => {
 					</div>
 				</div>
 			</div>
+			<div className="text-center" style={{ marginLeft: "150px" }}>
+				<h1 style={{ marginTop: "15px", marginRight: "150px" }}>Servicios:</h1>
 
-			<h1 style={{ marginTop: "15px" }}>Servicios:</h1>
+				<div
+					className="text-center"
+					style={{
+						marginTop: "25px",
+						border: "2px solid black",
+						width: "800px",
+						height: "150px",
+						borderRadius: "25px",
+						backgroundColor: "#CBEBE3"
+					}}>
+					<h3 style={{ marginTop: "20px", marginBottom: "25px", marginLeft: "50px" }}>Decoración</h3>
 
-			<div
-				style={{
-					marginTop: "25px",
-					border: "2px solid black",
-					width: "800px",
-					height: "150px",
-					borderRadius: "25px",
-					backgroundColor: "RGB(158, 202, 225)"
-				}}>
-				<h3 style={{ marginTop: "20px", marginBottom: "25px", marginLeft: "50px" }}>Decoración</h3>
-
-				<div style={{ marginLeft: "200px" }}>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
-						<label className="form-check-label" htmlFor="inlineCheckbox1">
-							Exteriores
-						</label>
+					<div className="text-center">
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline text-center">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+							<label className="form-check-label" htmlFor="inlineCheckbox1">
+								Exteriores
+							</label>
+						</div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+							<label className="form-check-label" htmlFor="inlineCheckbox2">
+								Interiores
+							</label>
+						</div>
+						<div className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
+							<label className="form-check-label" htmlFor="inlineCheckbox3">
+								Paisajismo
+							</label>
+						</div>
 					</div>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
-						<label className="form-check-label" htmlFor="inlineCheckbox2">
-							Interiores
-						</label>
+				</div>
+
+				<div
+					style={{
+						marginTop: "25px",
+						border: "2px solid black",
+						width: "800px",
+						height: "150px",
+						borderRadius: "25px",
+						backgroundColor: "#CBEBE3"
+					}}>
+					<h3 style={{ marginTop: "20px", marginBottom: "25px", marginLeft: "50px" }}>Remodelaciones</h3>
+
+					<div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+							<label className="form-check-label" htmlFor="inlineCheckbox1">
+								Cerrajería
+							</label>
+						</div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+							<label className="form-check-label" htmlFor="inlineCheckbox2">
+								Pintura
+							</label>
+						</div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
+							<label className="form-check-label" htmlFor="inlineCheckbox3">
+								Electricidad
+							</label>
+						</div>
+						<div className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
+							<label className="form-check-label" htmlFor="inlineCheckbox3">
+								Ventanería
+							</label>
+						</div>
 					</div>
-					<div className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
-						<label className="form-check-label" htmlFor="inlineCheckbox3">
-							Paisajismo
-						</label>
+				</div>
+
+				<div
+					style={{
+						marginTop: "25px",
+						border: "2px solid black",
+						width: "800px",
+						height: "150px",
+						borderRadius: "25px",
+						backgroundColor: "#CBEBE3"
+					}}>
+					<h3 style={{ marginTop: "20px", marginBottom: "25px", marginLeft: "50px" }}>
+						Servicios Domésticos
+					</h3>
+
+					<div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+							<label className="form-check-label" htmlFor="inlineCheckbox1">
+								Cocina
+							</label>
+						</div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+							<label className="form-check-label" htmlFor="inlineCheckbox2">
+								Limpieza General
+							</label>
+						</div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
+							<label className="form-check-label" htmlFor="inlineCheckbox3">
+								Limpieza Vidrios
+							</label>
+						</div>
+						<div className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
+							<label className="form-check-label" htmlFor="inlineCheckbox3">
+								Aplanchado
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div
+					style={{
+						marginTop: "25px",
+						border: "2px solid black",
+						width: "800px",
+						height: "150px",
+						borderRadius: "25px",
+						backgroundColor: "#CBEBE3"
+					}}>
+					<h3 style={{ marginTop: "20px", marginBottom: "25px", marginLeft: "50px" }}>Otros</h3>
+
+					<div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+							<label className="form-check-label" htmlFor="inlineCheckbox1">
+								Cuido de Mascotas
+							</label>
+						</div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
+							<label className="form-check-label" htmlFor="inlineCheckbox2">
+								Seguridad Privada
+							</label>
+						</div>
+						<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
+							<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
+							<label className="form-check-label" htmlFor="inlineCheckbox3">
+								Tapicería
+							</label>
+						</div>
 					</div>
 				</div>
 			</div>
-
-			<div
-				style={{
-					marginTop: "25px",
-					border: "2px solid black",
-					width: "800px",
-					height: "150px",
-					borderRadius: "25px",
-					backgroundColor: "#6baed6"
-				}}>
-				<h3 style={{ marginTop: "20px", marginBottom: "25px", marginLeft: "50px" }}>Remodelaciones</h3>
-
-				<div style={{ marginLeft: "200px" }}>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
-						<label className="form-check-label" htmlFor="inlineCheckbox1">
-							Cerrajería
-						</label>
-					</div>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
-						<label className="form-check-label" htmlFor="inlineCheckbox2">
-							Pintura
-						</label>
-					</div>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
-						<label className="form-check-label" htmlFor="inlineCheckbox3">
-							Electricidad
-						</label>
-					</div>
-					<div className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
-						<label className="form-check-label" htmlFor="inlineCheckbox3">
-							Ventanería
-						</label>
-					</div>
-				</div>
-			</div>
-
-			<div
-				style={{
-					marginTop: "25px",
-					border: "2px solid black",
-					width: "800px",
-					height: "150px",
-					borderRadius: "25px",
-					backgroundColor: "#4292c6"
-				}}>
-				<h3 style={{ marginTop: "20px", marginBottom: "25px", marginLeft: "50px" }}>Servicios Domésticos</h3>
-
-				<div style={{ marginLeft: "200px" }}>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
-						<label className="form-check-label" htmlFor="inlineCheckbox1">
-							Cocina
-						</label>
-					</div>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
-						<label className="form-check-label" htmlFor="inlineCheckbox2">
-							Limpieza General
-						</label>
-					</div>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
-						<label className="form-check-label" htmlFor="inlineCheckbox3">
-							Limpieza Vidrios
-						</label>
-					</div>
-					<div className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
-						<label className="form-check-label" htmlFor="inlineCheckbox3">
-							Aplanchado
-						</label>
-					</div>
-				</div>
-			</div>
-
-			<div
-				style={{
-					marginTop: "25px",
-					border: "2px solid black",
-					width: "800px",
-					height: "150px",
-					borderRadius: "25px",
-					backgroundColor: "#2171b5"
-				}}>
-				<h3 style={{ marginTop: "20px", marginBottom: "25px", marginLeft: "50px" }}>Otros</h3>
-
-				<div style={{ marginLeft: "200px" }}>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
-						<label className="form-check-label" htmlFor="inlineCheckbox1">
-							Cuido de Mascotas
-						</label>
-					</div>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" />
-						<label className="form-check-label" htmlFor="inlineCheckbox2">
-							Seguridad Privada
-						</label>
-					</div>
-					<div style={{ marginRight: "45px" }} className="form-check form-check-inline">
-						<input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
-						<label className="form-check-label" htmlFor="inlineCheckbox3">
-							Tapicería
-						</label>
-					</div>
-				</div>
-			</div>
-			<div>
-				<button type="button" className="btn btn-success">
+			<div className="p-2">
+				<button type="button" className="btn btn-dark">
 					Guardar
 				</button>
 			</div>
