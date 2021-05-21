@@ -41,7 +41,7 @@ export class ImgUploader extends Component {
 
 					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
 
-					<button style={{ marginTop: "5px" }} type="button" className="btn btn-info">
+					<button style={{ marginTop: "5px" }} type="button" className="btn btn-secondary">
 						Subir
 					</button>
 				</div>

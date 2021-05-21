@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import JoseAntonio2 from "../../img/JoseAntonio2.png";
 
 export const PerfilProveedor = () => {
 	return (
@@ -17,10 +18,7 @@ export const PerfilProveedor = () => {
 				</div>
 			</div>
 			<div style={{ marginTop: "40px" }}>
-				<img
-					src="https://icon-library.com/images/construction-worker-icon-png/construction-worker-icon-png-7.jpg"
-					style={{ width: "150px", height: "150px", float: "left" }}
-				/>
+				<img src={JoseAntonio2} style={{ width: "150px", height: "150px", float: "left" }} />
 			</div>
 			<div style={{ marginTop: "220px" }}>
 				<div style={{ float: "left", marginLeft: "-40px", marginRight: "10px" }}>
@@ -65,7 +63,10 @@ export const PerfilProveedor = () => {
 					<h3>Mis Ultimas Reseñas:</h3>
 				</div>
 				<div style={{ border: "2px solid black", textAlign: "center", padding: "10px", borderRadius: "5px" }}>
-					<p>Excelente Trabajo. Rapido y Cobra lo justo.</p>
+					<p>
+						Don Jose Antonio, realizó un excelente trabajo de pintura, mantuvo siempre mucha limpieza y fue
+						muy amable.
+					</p>
 					<img
 						src="https://3.bp.blogspot.com/-BQv_gSjB22U/WIRrwg5oM6I/AAAAAAABktM/yNXHpvY5hdscNrnXIIOXYKFskM8x2tN0wCLcB/s1600/3-5-star.png"
 						style={{ width: "100px" }}
@@ -79,7 +80,10 @@ export const PerfilProveedor = () => {
 						marginTop: "20px",
 						borderRadius: "5px"
 					}}>
-					<p>Buen trabajo. Siempre mantiene muy limpiDa su área de trabajo y cobra lo justo.</p>
+					<p>
+						Jose Antonio, realize un trabajo impecable en la remodelación de mi terraza, entendió muy lo que
+						quería, y fue muy efieciente en su trabajo.
+					</p>
 					<img
 						src="https://3.bp.blogspot.com/-BQv_gSjB22U/WIRrwg5oM6I/AAAAAAABktM/yNXHpvY5hdscNrnXIIOXYKFskM8x2tN0wCLcB/s1600/3-5-star.png"
 						style={{ width: "100px" }}

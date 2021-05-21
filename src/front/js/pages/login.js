@@ -121,10 +121,12 @@ export const Login = () => {
 								id="exampleInputPassword1"
 							/>
 						</div>
+						<br />
 						<div>
 							<Link to="/recuperacion">Olvidó su contraseña?</Link>
 						</div>
-						<button type="submit" className="btn btn-primary">
+						<br />
+						<button type="submit" className="btn btn-dark">
 							Enviar
 						</button>
 					</form>

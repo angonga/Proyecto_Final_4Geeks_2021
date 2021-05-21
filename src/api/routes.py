@@ -2,10 +2,10 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, current_app
-from api.models import db, User
+from api.models import db, User, Services
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
-from flask_jwt_extended import jwt_required, create_access_token
+from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identity
 # from flask_mail import Mail, Message
 import random
 import string
@@ -55,8 +55,10 @@ def register():
         print("-----------")
         print(role)
         print("-----------")
+        is_active=True
         if role ==True:
             role="vendor"
+            is_active=False
         else:
             role="client"
         user = User()
@@ -66,36 +68,37 @@ def register():
         user.last_name = last_name
         user.email = email
         user.password = password 
-        user.is_active = True   
+        user.is_active = is_active
     db.session.add(user)    
     db.session.commit()
     return jsonify({"msg": "Su registro ha sido activado de forma exitosa"}), 200
 
 @api.route("/update_profile", methods=["PUT"])
+@jwt_required()
 def update_profile():
-    email = request.json['email']
-    if email is None:
-        return jsonify({"msg": "Por favor ingrese su correo electrónico"}), 404
-    if role == 'vendor':
+    current_user = get_jwt_identity()
+    user = User.query.filter_by(id=current_user).first()
+    if not user:
+        return jsonify({"msg": "El usuario no existe"}), 404
+    if user.role == 'vendor':
         #falta agregar los servicios colocados en el checkbox del formulario
+        personal_id = request.json['personal_id']
         description = request.json['description']
-        profile_picture  = request.json['profile_picture']
-        criminal_record = request.json['criminal_record']
+        # profile_picture  = request.json['profile_picture']
+        # criminal_record = request.json['criminal_record']
         if not description:
             is_active = False
             return jsnoify({"msg": "Para la activación de su perfil, requerimos que ingrese una breve descripción de su experiencia y de sus trabajos realizados"}), 400
-        if not profile_picture:
-            is_active = False
-            return jsnoify({"msg": "Para la activación de su perfil, requerimos que por favor adjunte una foto de perfil, idealmente con fondo blanco"}), 400
-        if not criminal_record:
-            is_active = False
-            return jsnoify({"msg": "Su hoja de delincuencia debe ser adjuntada en formato PDF para la activación de su perfil"}), 400
+        # if not profile_picture:
+        #     is_active = False
+        #     return jsnoify({"msg": "Para la activación de su perfil, requerimos que por favor adjunte una foto de perfil, idealmente con fondo blanco"}), 400
+        # if not criminal_record:
+        #     is_active = False
+        #     return jsnoify({"msg": "Su hoja de delincuencia debe ser adjuntada en formato PDF para la activación de su perfil"}), 400
         # once the vendor has completed his information, his profile will be activated
-        user = User.query.filter_by(email=email).first()
-        user.is_active = is_active
+        user.personal_id  = personal_id 
         user.description = description
-        user.profile_picture = profile_picture
-        user.criminal_record = criminal_record  
+        # user.is_active = False
     db.session.commit()
     return jsonify({"msg": "Sus datos han sido actualizados de forma éxitosa"}), 200
 
@@ -134,11 +137,12 @@ def protected():
 @jwt_required()
 def show():
     # busca la identidad del token
-    current_id = get_jwt_identity()
+    current_user = get_jwt_identity()
     # busca usuarios en base de datos
-    user = User.query.get(current_id)
+    print(current_user)
+    user = User.query.filter_by(id=current_user).first()
     print(user)
-    return jsonify({"user": user}), 200
+    return jsonify({"user": user.serialize()}), 200
 
 @api.route("/resetpassword", methods=["POST"])
 def resetpassword():
@@ -199,6 +203,7 @@ def forgotpassword():
 #SERVICES
 @api.route("/services", methods=["GET"])
 def getservices():
-    allservices = Services.query.all()
-    return jsonify(allservices), 200
+    services = Services.query.all()
+    services = list(map(lambda x: x.serialize(), services))
+    return jsonify({"servicios":services}), 200
 

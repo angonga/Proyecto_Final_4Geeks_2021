@@ -46,7 +46,7 @@ class ResetPassword extends React.Component {
 					</ModalBody>
 
 					<ModalFooter>
-						<Button color="primary">Guardar</Button>
+						<Button color="secondary">Guardar</Button>
 						<Button color="secondary" onClick={this.abrirModal}>
 							Cancel
 						</Button>

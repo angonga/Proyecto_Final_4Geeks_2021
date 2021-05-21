@@ -26,7 +26,7 @@ export const Quienes = _props => {
 							<CardSubtitle tag="h6" className="mb-2 text-muted">
 								Ingeniera Industrial, Desarrolladora Full Stack
 							</CardSubtitle>
-							<Button className="btn bg-light btn-outline-success">Contactar</Button>
+							<Button className="btn btn-dark">Contactar</Button>
 						</CardBody>
 					</Card>
 				</div>
@@ -38,7 +38,7 @@ export const Quienes = _props => {
 							<CardSubtitle tag="h6" className="mb-2 text-muted">
 								Ingeniero en Tecnologías de Información, Desarrollador Full Stack
 							</CardSubtitle>
-							<Button className="btn bg-light btn-outline-success">Contactar</Button>
+							<Button className="btn btn-dark">Contactar</Button>
 						</CardBody>
 					</Card>
 				</div>
@@ -52,7 +52,7 @@ export const Quienes = _props => {
 							<CardSubtitle tag="h6" className="mb-2 text-muted">
 								Ingeniero Informática, Desarrollador Full Stack
 							</CardSubtitle>
-							<Button className="btn bg-light btn-outline-success">Contactar</Button>
+							<Button className="btn btn-dark">Contactar</Button>
 						</CardBody>
 					</Card>
 				</div>
@@ -64,7 +64,7 @@ export const Quienes = _props => {
 							<CardSubtitle tag="h6" className="mb-2 text-muted">
 								Contadora Pública, Desarrolladora Full Stack
 							</CardSubtitle>
-							<Button className="btn bg-light btn-outline-success">Contactar</Button>
+							<Button className="btn btn-dark">Contactar</Button>
 						</CardBody>
 					</Card>
 				</div>

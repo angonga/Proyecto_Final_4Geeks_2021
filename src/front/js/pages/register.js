@@ -209,7 +209,7 @@ export const Register = () => {
 							id="exampleInputPassword1"
 						/>
 					</div>
-					<button type="submit" className="btn btn-primary">
+					<button type="submit" className="btn btn-dark">
 						Enviar
 					</button>
 				</form>

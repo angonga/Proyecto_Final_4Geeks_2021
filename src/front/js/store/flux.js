@@ -32,15 +32,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-
 			loadServicios: () => {
 				// fetching data from the backend
 				fetch(process.env.BACKEND_URL + "/api/services")
 					.then(resp => resp.json())
-					.then(data => setStore({ servicios: data.allservices }))
+					.then(data => {
+						setStore({ servicios: data.servicios });
+						console.log("Servicios", data.servicios);
+					})
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-
 			loadProvincias: () => {
 				const store = getStore();
 				fetch("https://ubicaciones.paginasweb.cr/provincias.json")
@@ -107,8 +108,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => {
 						setStore({ token: data.token });
-						actions.loadUser();
-						console.log(data);
+						actions.loadUser(data.token);
+						console.log(store);
 						sessionStorage.setItem("my_token", data.token);
 					})
 					.catch(err => console.log(err));

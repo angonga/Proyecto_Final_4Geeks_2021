@@ -14,9 +14,12 @@ function dashboardProveedor() {
 	const [endDate, setEndDate] = useState(new Date());
 
 	return (
-		<div className="text-center container">
-			<br />
-			<br />
+		<div
+			className="container d-flex flex-column text-center"
+			style={{
+				marginTop: "80px",
+				marginBottom: "25px"
+			}}>
 			<h1 className="text-left">Trabajos pendientes:</h1>
 			<div className="text-right">
 				<button type="button" className="btn btn-info">
