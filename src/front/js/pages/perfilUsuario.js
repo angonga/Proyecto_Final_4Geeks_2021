@@ -17,9 +17,9 @@ export const PerfilUsuario = () => {
 		actions.loadServicios();
 	}, []);
 
-	// const changeProvincia = id => {
-	// 	actions.loadCantones(id);
-	// };
+	const changeProvincia = id => {
+		// actions.loadCantones(id);
+	};
 
 	return (
 		<div
@@ -30,6 +30,16 @@ export const PerfilUsuario = () => {
 				maxwidth: "1140px",
 				padding: "25px 50px 75px 50px"
 			}}>
+			<div className="input-group">
+				<SelectSearch
+					onChange={changeProvincia}
+					options={store.provincias}
+					value="value"
+					name="name"
+					placeholder="Provincia"
+				/>
+				{/* <SelectSearch options={store.cantones} value="value" name="name" placeholder="Cantón" /> */}
+			</div>
 			<ShowVendorCard />
 		</div>
 	);

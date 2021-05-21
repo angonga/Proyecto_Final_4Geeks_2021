@@ -3,7 +3,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			provincias: [],
 			cantones: [],
-			servicios: []
+			servicios: [],
+			proveedores: [
+				{
+					nombre: "Jose Antonio Rivas",
+					servicios: "Cerrajaería, Pintura, Remodelaciones",
+					area: "San José, Heredia, Cartago",
+					img: "https://i.musicaimg.com/letras/250x250/ricardo-arjona.jpg"
+				},
+				{
+					nombre: "Isabel RodrÍguez",
+					servicios: "Cocina",
+					area: "San José, Heredia, Alajuela",
+					img: "https://i.musicaimg.com/letras/250x250/ricardo-arjona.jpg"
+				},
+				{
+					nombre: "Emanuel ",
+					servicios: "Paisajismo",
+					area: "San José, Alajuela",
+					img: "https://i.musicaimg.com/letras/250x250/ricardo-arjona.jpg"
+				},
+				{
+					nombre: "Ricardo",
+					servicios: "Paisajismo",
+					area: "San José, Alajuela",
+					img: "https://i.musicaimg.com/letras/250x250/ricardo-arjona.jpg"
+				}
+			],
+			currentUser: null,
+			role: "" //adicionado05-21
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -13,7 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getMessage: () => {
 				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
+				fetch("https://3001-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/api/hello")
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
@@ -34,7 +62,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadServicios: () => {
 				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/services")
+				// fetch(process.env.BACKEND_URL + "/api/services")
+				//3001-brown-vulture-ydybxsfp.ws-us07.gitpod.io/
+				https: fetch("https://3001-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/api/services")
 					.then(resp => resp.json())
 					.then(data => {
 						setStore({ servicios: data.servicios });
@@ -62,26 +92,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ provincias: arrayProvincias });
 					});
 			},
-			loadCantones: id => {
-				fetch(`https://ubicaciones.paginasweb.cr/provincia/${id}/cantones.json`)
-					.then(res => res.json())
-					.then(async data => {
-						console.log("load cantones", data);
-						let ids = Object.keys(data);
-						let valores = Object.values(data);
+			// loadCantones: id => {
+			// 	fetch(`https://ubicaciones.paginasweb.cr/provincia/${id}/cantones.json`)
+			// 		.then(res => res.json())
+			// 		.then(async data => {
+			// 			console.log("load cantones", data);
+			// 			let ids = Object.keys(data);
+			// 			let valores = Object.values(data);
 
-						let arrayCantones = [];
+			// 			let arrayCantones = [];
 
-						for (let i = 0; i < ids.length; i++) {
-							let objCanton = {
-								value: ids[i],
-								name: valores[i]
-							};
-							arrayCantones = [...arrayCantones, objCanton];
-						}
-						setStore({ cantones: arrayCantones });
-					});
-			},
+			// 			for (let i = 0; i < ids.length; i++) {
+			// 				let objCanton = {
+			// 					value: ids[i],
+			// 					name: valores[i]
+			// 				};
+			// 				arrayCantones = [...arrayCantones, objCanton];
+			// 			}
+			// 			setStore({ cantones: arrayCantones });
+			// 		});
+			// },
 			// register: data => {
 			// 	// fetching data from the backend
 			// 	fetch(process.env.BACKEND_URL + "/api/register", {
@@ -98,7 +128,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// },
 			login: body => {
 				const actions = getActions();
-				fetch("https://3001-brown-vulture-ydybxsfp.ws-us04.gitpod.io/api/login", {
+				const store = getStore();
+				fetch("https://3001-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/api/login", {
 					method: "POST",
 					body: JSON.stringify(body),
 					headers: {
@@ -119,7 +150,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				sessionStorage.removeItem("my_token");
 			},
 			loadUser: my_token => {
-				fetch("https://3001-brown-vulture-ydybxsfp.ws-us04.gitpod.io/api/me", {
+				fetch("https://3001-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/api/me", {
 					headers: {
 						Authorization: `Bearer ${my_token}`
 					}
@@ -127,7 +158,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => {
 						setStore({ currentUser: data.user });
-						console.log(data);
+						setStore({ role: data.user.role });
+						//setStore({ currentUser: data.user });
+						//console.log("role--->", data.user.role);
 					})
 					.catch(err => console.log(err));
 			}

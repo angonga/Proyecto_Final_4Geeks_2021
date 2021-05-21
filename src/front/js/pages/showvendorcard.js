@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../styles/vendor-card.scss";
 import { Context } from "../store/appContext";
 import VendorCard from "./vendor-card";
-import JoseAntonio2 from "../../img/JoseAntonio2.png";
+// import JoseAntonio2 from "../../img/JoseAntonio2.png";
 
 export default function ShowVendorCard() {
 	const { store, actions } = useContext(Context);
@@ -26,24 +26,29 @@ export default function ShowVendorCard() {
 					}}
 					type="text"
 					className="form-control"
-					placeholder="Busque su profesional..."
-					aria-label="Busque su profesional"
-					name="Busque su profesional"
-					id="Busque su profesional"
+					placeholder="¿Qué servicio buscar?"
+					aria-label="¿Qué servicio buscar?"
+					name="¿Qué servicio buscar?"
+					id="¿Qué servicio buscar?"
 				/>
 				<div className="row d-flex-row flex-nowrap overflow-auto mt-3">
-					{store.servicios
+					{store.proveedores
 						.filter(value => {
 							if (searchVendor === "") {
 								return value;
-							} else if (value.name.toLowerCase().includes(searchVendor.toLowerCase())) {
+							} else if (value.servicios.toLowerCase().includes(searchVendor.toLowerCase())) {
 								return value;
 							}
 						})
 						.map((item, index) => {
 							return (
 								<div key={index} className="col-lg-4 mb-5">
-									<VendorCard />
+									<VendorCard
+										nombre={item.nombre}
+										servicios={item.servicios}
+										area={item.area}
+										img={item.img}
+									/>
 								</div>
 							);
 						})}

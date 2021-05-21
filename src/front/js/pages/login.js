@@ -131,10 +131,10 @@ export const Login = () => {
 						</button>
 					</form>
 				</div>
-				{/* {auth ? <Redirect to="/perfilUsuario" /> : null} */}
-				{store.currrentUser && store.currrentUser.role === "vendor" ? (
+				{console.log(store.role)}
+				{store.role === "vendor" ? (
 					<Redirect to="/editProveedor" />
-				) : store.currrentUser && store.currrentUser.role === "client" ? (
+				) : store.role === "client" ? (
 					<Redirect to="/perfilUsuario" />
 				) : null}
 			</div>
@@ -143,6 +143,12 @@ export const Login = () => {
 };
 
 export default Login;
+
+// {store.currrentUser && store.currrentUser.role === "vendor" ? (
+// 				<Redirect to="/editProveedor" />
+// 			) : store.currrentUser && store.currrentUser.role === "client" ? (
+// 				<Redirect to="/perfilUsuario" />
+// 			) : null}
 
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from "reactstrap";
 // import "bootstrap/dist/css/bootstrap.css";
