@@ -8,15 +8,6 @@ class Cards extends Component {
 			<div className="container d-flex- justify-content-center">
 				<div className="row justify-content-center">
 					<Card />
-					{/* <div className="col-md-4"> */}
-					{/* <Card /> */}
-					{/* </div> */}
-					{/* <div className="col-md-4"> */}
-					{/* <Card /> */}
-					{/* </div> */}
-					{/* <div className="col-md-4"> */}
-					{/* <Card /> */}
-					{/* </div> */}
 				</div>
 			</div>
 		);

@@ -6,28 +6,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 			servicios: [],
 			proveedores: [
 				{
-					nombre: "Jose Antonio Rivas",
-					servicios: "Cerrajaería, Pintura, Remodelaciones",
-					area: "San José, Heredia, Cartago",
-					img: "https://i.musicaimg.com/letras/250x250/ricardo-arjona.jpg"
+					nombre: "Emanuel Rojas",
+					servicios: "Paisajismo",
+					area: "San José, Alajuela",
+					img:
+						"https://previews.123rf.com/images/stocking/stocking1305/stocking130500300/19567977-portrait-of-a-professional-gardener.jpg"
+				},
+				{
+					nombre: "Ricardo Arias",
+					servicios: "Diseño Interiores",
+					area: "San José, Heredia",
+					img: "https://onehundrededition.com/wp-content/uploads/2019/08/matteo_nunziati-0541-Modifica.jpg"
+				},
+				{
+					nombre: "Rocio Gomez",
+					servicios: "Limpieza en General",
+					area: "Alajuela, Heredia",
+					img: "https://image.freepik.com/foto-gratis/ama-llaves-limpiando-habitacion-hotel_53876-52796.jpg"
 				},
 				{
 					nombre: "Isabel RodrÍguez",
 					servicios: "Cocina",
 					area: "San José, Heredia, Alajuela",
-					img: "https://i.musicaimg.com/letras/250x250/ricardo-arjona.jpg"
+					img:
+						"https://cdn2.stylecraze.com/wp-content/uploads/2020/02/30-Best-Gifts-For-Professional-Chefs.jpg"
 				},
 				{
-					nombre: "Emanuel ",
-					servicios: "Paisajismo",
-					area: "San José, Alajuela",
-					img: "https://i.musicaimg.com/letras/250x250/ricardo-arjona.jpg"
-				},
-				{
-					nombre: "Ricardo",
-					servicios: "Paisajismo",
-					area: "San José, Alajuela",
-					img: "https://i.musicaimg.com/letras/250x250/ricardo-arjona.jpg"
+					nombre: "Jose Antonio Rivas",
+					servicios: "Cerrajaería, Pintura, Remodelaciones",
+					area: "San José, Heredia, Cartago",
+					img: "https://s3-media0.fl.yelpcdn.com/bphoto/uty6x4kOnRyL40jSXVQXqw/o.jpg"
 				}
 			],
 			currentUser: null,
@@ -148,6 +156,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logout: () => {
 				setStore({ token: "" });
 				sessionStorage.removeItem("my_token");
+				location.replace("/");
 			},
 			loadUser: my_token => {
 				fetch("https://3001-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/api/me", {
