@@ -21,7 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					nombre: "Rocio Gomez",
 					servicios: "Limpieza en General",
-					area: "Alajuela, Heredia",
+					area: "San José, Cartago",
 					img: "https://image.freepik.com/foto-gratis/ama-llaves-limpiando-habitacion-hotel_53876-52796.jpg"
 				},
 				{
@@ -47,13 +47,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 
-			getMessage: () => {
-				// fetching data from the backend
-				fetch("https://3001-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
+			// getMessage: () => {
+			// 	// fetching data from the backend
+			// 	fetch("https://3001-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/api/hello")
+			// 		.then(resp => resp.json())
+			// 		.then(data => setStore({ message: data.message }))
+			// 		.catch(error => console.log("Error loading message from backend", error));
+			// },
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -100,26 +100,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ provincias: arrayProvincias });
 					});
 			},
-			// loadCantones: id => {
-			// 	fetch(`https://ubicaciones.paginasweb.cr/provincia/${id}/cantones.json`)
-			// 		.then(res => res.json())
-			// 		.then(async data => {
-			// 			console.log("load cantones", data);
-			// 			let ids = Object.keys(data);
-			// 			let valores = Object.values(data);
+			loadCantones: id => {
+				fetch(`https://ubicaciones.paginasweb.cr/provincia/${id}/cantones.json`)
+					.then(res => res.json())
+					.then(async data => {
+						console.log("load cantones", data);
+						let ids = Object.keys(data);
+						let valores = Object.values(data);
 
-			// 			let arrayCantones = [];
+						let arrayCantones = [];
 
-			// 			for (let i = 0; i < ids.length; i++) {
-			// 				let objCanton = {
-			// 					value: ids[i],
-			// 					name: valores[i]
-			// 				};
-			// 				arrayCantones = [...arrayCantones, objCanton];
-			// 			}
-			// 			setStore({ cantones: arrayCantones });
-			// 		});
-			// },
+						for (let i = 0; i < ids.length; i++) {
+							let objCanton = {
+								value: ids[i],
+								name: valores[i]
+							};
+							arrayCantones = [...arrayCantones, objCanton];
+						}
+						setStore({ cantones: arrayCantones });
+					});
+			},
 			// register: data => {
 			// 	// fetching data from the backend
 			// 	fetch(process.env.BACKEND_URL + "/api/register", {

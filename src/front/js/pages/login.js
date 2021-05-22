@@ -23,10 +23,6 @@ export const Login = () => {
 		actions.login(body);
 	};
 
-	// swal(<div>Hello world</div>, {
-	// 	buttons: true
-	// });
-
 	return (
 		<div>
 			<div className="text-center mx-auto pt-5">
@@ -72,15 +68,10 @@ export const Login = () => {
 						</button>
 					</form>
 				</div>
+				alert()
 				{console.log(store.role)}
 				{store.role === "vendor" ? (
-					// <Redirect to="/editProveedor" />
-					<Redirect
-						to={{
-							path: "/editProveedor",
-							state: { flashInfo: "Please log in to continue." }
-						}}
-					/>
+					<Redirect to="/editProveedor" />
 				) : store.role === "client" ? (
 					<Redirect to="/perfilUsuario" />
 				) : null}
@@ -91,9 +82,11 @@ export const Login = () => {
 
 export default Login;
 
-// {console.log(store.role)}
-// {store.role === "vendor" ? (
+// { console.log(store.role) }
+// {
+// store.role === "vendor" ? (
 //     <Redirect to="/editProveedor" />
 // ) : store.role === "client" ? (
-//         <Redirect to="/perfilUsuario" />
-//     ) : null}
+//     <Redirect to="/perfilUsuario" />
+// ) : null
+// }

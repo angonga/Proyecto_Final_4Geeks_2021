@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../styles/recuperacion.scss";
 
 export const Recuperacion = () => {
 	const [email, setEmail] = useState("");
@@ -29,27 +30,25 @@ export const Recuperacion = () => {
 
 	return (
 		<div
-			className="container text-center"
+			className="text-center recuperacion"
 			style={{ width: "450px", height: "250px", marginTop: "150px", marginBottom: "175px", padding: "15px" }}>
 			{" "}
 			<h3>Recuperar Contraseña</h3>
-			<form onSubmit={handleSubmit} style={{ width: "350px" }}>
-				<div className="">
-					<label htmlFor="exampleInputEmail1" className="form-label">
-						Correo Electrónico
-					</label>
-					<input
-						onChange={e => setEmail(e.target.value)}
-						type="email"
-						className="form-control"
-						id="exampleInputEmail1"
-						aria-describedby="emailHelp"
-					/>
-					<div id="emailHelp" className="form-text">
-						Por favor ingrese el correo brindado, y siga las instrucciones.
-					</div>
+			<form onSubmit={handleSubmit}>
+				<label htmlFor="exampleInputEmail1" className="form-label">
+					Correo Electrónico
+				</label>
+				<input
+					onChange={e => setEmail(e.target.value)}
+					type="email"
+					className="form-control"
+					id="exampleInputEmail1"
+					aria-describedby="emailHelp"
+				/>
+				<div id="emailHelp" className="form-text">
+					Por favor ingrese el correo brindado, y siga las instrucciones.
 				</div>
-
+				<br />
 				<button type="submit" className="btn btn-dark">
 					Enviar
 				</button>

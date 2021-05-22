@@ -33,15 +33,15 @@ class ResetPassword extends React.Component {
 					<ModalBody>
 						<FormGroup style={{ width: "400px" }}>
 							<Label for="old">Contraseña Actual</Label>
-							<Input type="text" id="email" />
+							<Input type="password" id="email" />
 						</FormGroup>
 						<FormGroup style={{ width: "400px" }}>
 							<Label for="new">Nueva Contraseña</Label>
-							<Input type="text" id="email" />
+							<Input type="password" id="email" />
 						</FormGroup>
 						<FormGroup style={{ width: "400px" }}>
 							<Label for="new2">Confirmar Nueva Contraseña</Label>
-							<Input type="text" id="email" />
+							<Input type="password" id="email" />
 						</FormGroup>
 					</ModalBody>
 
