@@ -7,6 +7,7 @@ import andrea from "../../img/andrea.jpg";
 import geovanny from "../../img/giovanni.jpeg";
 import karen from "../../img/karen.jpeg";
 import { Card, Button, CardImg, CardTitle, CardSubtitle, CardBody } from "reactstrap";
+
 export const Quienes = _props => {
 	return (
 		<div className="container pb-5">
@@ -23,8 +24,8 @@ export const Quienes = _props => {
 						<CardImg top width="200px" src={andrea} alt="Card image cap" />
 						<CardBody className="text-center">
 							<CardTitle tag="h5">Andrea Gonzalez </CardTitle>
-							<CardSubtitle tag="h6" className="mb-2 text-muted">
-								Ingeniera Industrial, Desarrolladora Full Stack
+							<CardSubtitle tag="h6" className="mb-2 text-light">
+								Ingeniera Industrial, Analista de Datos y Desarrolladora Full Stack
 							</CardSubtitle>
 							<Button className="btn btn-dark">Contactar</Button>
 						</CardBody>
@@ -35,8 +36,8 @@ export const Quienes = _props => {
 						<CardImg top width="200px" src={sergio} alt="Card image cap" />
 						<CardBody className="text-center">
 							<CardTitle tag="h5">Sergio Baldioceda</CardTitle>
-							<CardSubtitle tag="h6" className="mb-2 text-muted">
-								Ingeniero en Tecnologías de Información, Desarrollador Full Stack
+							<CardSubtitle tag="h6" className="mb-2 text-light">
+								Ingeniero en Tecnologías de Información y Desarrollador Full Stack
 							</CardSubtitle>
 							<Button className="btn btn-dark">Contactar</Button>
 						</CardBody>
@@ -49,8 +50,8 @@ export const Quienes = _props => {
 						<CardImg top width="200px" src={geovanny} alt="Card image cap" />
 						<CardBody className="text-center">
 							<CardTitle tag="h5">Giovanni Chinchilla </CardTitle>
-							<CardSubtitle tag="h6" className="mb-2 text-muted">
-								Ingeniero Informática, Desarrollador Full Stack
+							<CardSubtitle tag="h6" className="mb-2 text-light">
+								Ingeniero Informática y Desarrollador Full Stack
 							</CardSubtitle>
 							<Button className="btn btn-dark">Contactar</Button>
 						</CardBody>
@@ -61,8 +62,8 @@ export const Quienes = _props => {
 						<CardImg top width="200px" src={karen} alt="Card image cap" />
 						<CardBody className="text-center">
 							<CardTitle tag="h5">Karen Aguilar</CardTitle>
-							<CardSubtitle tag="h6" className="mb-2 text-muted">
-								Contadora Pública, Desarrolladora Full Stack
+							<CardSubtitle tag="h6" className="mb-2 text-light">
+								Contadora Pública y Desarrolladora Full Stack
 							</CardSubtitle>
 							<Button className="btn btn-dark">Contactar</Button>
 						</CardBody>

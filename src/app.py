@@ -10,10 +10,7 @@ from api.utils import APIException, generate_sitemap
 from api.models import db, User, Services
 from api.routes import api
 from api.admin import setup_admin
-#from models import Person
 from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity, create_access_token
-# from flask_mail import Mail, Message
-# import smtplib, ssl
 
 
 

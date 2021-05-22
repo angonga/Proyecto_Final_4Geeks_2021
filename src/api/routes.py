@@ -147,9 +147,9 @@ def show():
 @api.route("/resetpassword", methods=["POST"])
 def resetpassword():
     email = request.json['email']
-    old_password = request.json['old_password']
-    new_password = request.json['new_password']
-    confirmed_password = request.json['confirmed_password']
+    old_password = request.json['oldpassword']
+    new_password = request.json['newpassword']
+    confirmed_password = request.json['confirmedpassword']
     # inputs validation
     if not email:
         return jsonify({"msg": "Por favor ingrese su correo electrónico"}), 400
@@ -189,7 +189,7 @@ def forgotpassword():
         to_emails=recover_email,
         subject='Contraseña Temporal para inicio de Sesión en Calle4',
         # html_content='<strong>Su contraseña temporal es la siguiente:</strong>'+recover_password+'<br/><strong>Por favor ingrese a este link:</strong>'+os.environ.get('BACKEND_URL')+ "/resetPassword")
-        html_content='<strong>Su contraseña temporal es la siguiente:</strong>'+recover_password+'<br/><strong>Por favor ingrese a este link:</strong>'+"https://3000-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/resetPassword")
+        html_content='<strong>Su contraseña temporal es la siguiente : </strong>'+recover_password+'<br/><strong>Por favor ingrese a este link : </strong>'+"https://3000-maroon-viper-y4y3mj7h.ws-us07.gitpod.io/resetPassword")
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)

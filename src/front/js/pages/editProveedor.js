@@ -33,7 +33,12 @@ export const EditProveedor = () => {
 						<div style={{ width: "800px" }}>
 							<form style={{ float: "left", marginRight: "30px", marginTop: "25px", marginLeft: "30px" }}>
 								{/* <label htmlFor="nombre">Nombre: </label> */}
-								<input style={{ width: "250px" }} type="text" name="nombre" placeholder="Nombre" />
+								<input
+									style={{ width: "250px" }}
+									type="text"
+									name="nombre"
+									placeholder="Jose Antonio"
+								/>
 							</form>
 
 							<form style={{ float: "left", marginRight: "30px", marginLeft: "30px" }}>
@@ -42,18 +47,23 @@ export const EditProveedor = () => {
 									style={{ width: "350px", marginTop: "25px" }}
 									type="text"
 									name="apellido"
-									placeholder="Apellido"
+									placeholder="Rivas"
 								/>
 							</form>
 
 							<form style={{ float: "left", marginTop: "30px", marginRight: "30px", marginLeft: "30px" }}>
 								{/* <label htmlFor="email">Correo electrónico: </label> */}
-								<input style={{ width: "250px" }} type="text" name="email" placeholder="Email" />
+								<input
+									style={{ width: "250px" }}
+									type="text"
+									name="email"
+									placeholder="jose.rivas.cr2021@gmail.com"
+								/>
 							</form>
 
 							<form style={{ float: "left", marginTop: "30px", marginLeft: "30px" }}>
 								{/* <label htmlFor="telefono">Teléfono: </label> */}
-								<input style={{ width: "350px" }} type="text" name="telefono" placeholder="Teléfono" />
+								<input style={{ width: "350px" }} type="text" name="telefono" placeholder="84561236" />
 							</form>
 
 							<form style={{ float: "left", marginTop: "30px", marginRight: "30px", marginLeft: "30px" }}>
