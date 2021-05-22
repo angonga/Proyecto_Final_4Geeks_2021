@@ -23,7 +23,7 @@ export const Login = () => {
 		};
 		MySwal.fire({
 			icon: "success",
-			title: <p>Se ha registrado satisfactoriamente. Por favor proceda a iniciar sesión!</p>
+			title: <p>Su sesión se ha iniciado de forma éxitosa!</p>
 		});
 		actions.login(body);
 	};

@@ -47,6 +47,10 @@ export const Register = () => {
 			.then(data => {
 				console.log(data);
 				setAuth(true);
+				MySwal.fire({
+					icon: "success",
+					title: <p>Se ha registrado de forma éxitosa!</p>
+				});
 			})
 			.catch(err => console.log(err));
 	};
