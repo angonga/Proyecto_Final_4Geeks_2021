@@ -9,13 +9,13 @@ const Card = props => {
 			<div className="col-md-4">
 				<div className="card text-center tarjeta">
 					<div className="overflow">
-						<img src={step1} alt="Image1" />
+						<img src={step1} alt="Image1" height="200px" width="200px" />
 					</div>
 					<div className="card-body text-dark cuerpo-tarjeta">
-						<h4 className="card-title">Paso 1</h4>
-						<p className="card-text texto-tarjeta">
+						<h4 className="card-title text-light">Paso 1</h4>
+						<p className="card-text texto-tarjeta" style={{ color: "#DAA520", fontSize: "18px" }}>
 							Dirígite al botón Buscar y filtra según el servicio, y la ubicación en donde requieres la
-							reparación
+							contratación de un servicio.
 						</p>
 						<a href="/perfilUsuario" className="btn btn-dark">
 							Buscar Servicio
@@ -26,13 +26,13 @@ const Card = props => {
 			<div className="col-md-4">
 				<div className="card text-center tarjeta">
 					<div className="overflow">
-						<img src={step2} alt="Image1" />
+						<img src={step2} alt="Image1" height="200px" width="200px" />
 					</div>
 					<div className="card-body text-dark cuerpo-tarjeta">
-						<h4 className="card-title">Paso 2</h4>
-						<p className="card-text texto-tarjeta">
+						<h4 className="card-title text-light">Paso 2</h4>
+						<p className="card-text texto-tarjeta" style={{ color: "#DAA520", fontSize: "18px" }}>
 							Una vez seleccionado el perfil del profesional, se encontrará el botón Contactar,
-							presionándolo vas a tener la información del profesional.
+							presionándolo vas a poder contactar al proveedor del servicio.
 						</p>
 						<a href="/perfilProveedor" className="btn btn-dark">
 							Contactar
@@ -44,13 +44,13 @@ const Card = props => {
 			<div className="col-md-4">
 				<div className="card text-center tarjeta">
 					<div className="overflow">
-						<img src={step3} alt="Image1" />
+						<img src={step3} alt="Image1" height="200px" width="200px" />
 					</div>
 					<div className="card-body text-dark cuerpo-tarjeta">
-						<h4 className="card-title">Paso 3</h4>
-						<p className="card-text texto-tarjeta">
-							Para poder Contratar el servicio del profesional, te debes registar en el botón Registro, o
-							a su vez Iniciar Sesión. content.
+						<h4 className="card-title text-light">Paso 3</h4>
+						<p className="card-text texto-tarjeta" style={{ color: "#DAA520", fontSize: "18px" }}>
+							Pero antes de que Calle4 te ponga en contacto con tu profesional te debes registar en el
+							botón Registro y a a su vez Iniciar Sesión.
 						</p>
 						<a href="/register" className="btn btn-dark">
 							Registarse

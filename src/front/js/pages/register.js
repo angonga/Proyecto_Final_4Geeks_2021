@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "../../styles/register.css";
+import swal from "sweetalert";
 
 export const Register = () => {
 	const [role, setRole] = useState(false);
@@ -11,6 +12,15 @@ export const Register = () => {
 	const [password, setPassword] = useState("");
 	const [isProvider, setIsProvider] = useState(false);
 	const [auth, setAuth] = useState(false);
+
+	// const mostrarAlerta=()=>{
+	//     swal({
+	//         title: "A"
+	//         text: "b"
+	//         icon:"success"
+	//         button:"Aceptar"
+	//     });
+	// }
 
 	const handleSubmit = e => {
 		e.preventDefault();

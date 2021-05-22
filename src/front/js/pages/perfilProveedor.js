@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import JoseAntonio2 from "../../img/JoseAntonio2.png";
+import JoseAntonio3 from "../../img/JoseAntonio3.jpeg";
 
 export const PerfilProveedor = () => {
 	return (
@@ -18,7 +18,7 @@ export const PerfilProveedor = () => {
 				</div>
 			</div>
 			<div style={{ marginTop: "40px" }}>
-				<img src={JoseAntonio2} style={{ width: "150px", height: "150px", float: "left" }} />
+				<img src={JoseAntonio3} style={{ width: "150px", height: "150px", float: "left" }} />
 			</div>
 			<div style={{ marginTop: "220px" }}>
 				<div style={{ float: "left", marginLeft: "-40px", marginRight: "10px" }}>
@@ -33,14 +33,18 @@ export const PerfilProveedor = () => {
 			</div>
 			<div>
 				<div style={{ float: "left", marginTop: "40px", marginLeft: "-200px" }}>
-					<button type="button" className="btn btn-dark">
-						Contratar
-					</button>
+					<a href="/register">
+						<button type="button" className="btn btn-dark">
+							Contratar
+						</button>
+					</a>
 				</div>
 				<div style={{ float: "left", marginTop: "40px", marginLeft: "-90px" }}>
-					<button type="button" className="btn btn-dark">
-						Contactar
-					</button>
+					<a href="/register">
+						<button type="button" className="btn btn-dark">
+							Contactar
+						</button>
+					</a>
 				</div>
 			</div>
 			<div style={{ float: "left", position: "absolute", marginTop: "75px", marginLeft: "65px" }}>
@@ -49,12 +53,9 @@ export const PerfilProveedor = () => {
 				</div>
 				<div>
 					<ul>
-						<li>Pintura</li>
-						<li>Reparación</li>
-						<li>Remodelación</li>
-						<li>Pisos y Decks</li>
 						<li>Mantenimiento</li>
-						<li>Acabados</li>
+						<li>Pintura</li>
+						<li>Remodelaciones</li>
 					</ul>
 				</div>
 			</div>

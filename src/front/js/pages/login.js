@@ -1,74 +1,11 @@
-// import React, { useState, useContext } from "react";
-// import "../../styles/register.css";
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from "reactstrap";
-// import "bootstrap/dist/css/bootstrap.css";
-// import { Link } from "react-router-dom";
-// import { Context } from "../store/appContext";
-
-// const Login = () => {
-// 	const [abierto, setAbierto] = useState(true);
-// 	const [email, setEmail] = useState("");
-// 	const [password, setPassword] = useState("");
-// 	const { store, actions } = useContext(Context);
-
-// 	const modalStyles = {
-// 		position: "absolute",
-// 		top: "50%",
-// 		left: "50%",
-// 		transform: "translate(-50%, -50%)"
-// 	};
-
-// 	const body = {
-// 		email: email,
-// 		password: password
-// 	};
-
-// 	const onSubmit = e => {
-// 		actions.login(body);
-// 	};
-
-// 	const abrirModal = () => {
-// 		setAbierto(!abierto);
-// 	};
-
-// 	// const sendForm = () => {
-// 	// 	alert(email);
-// 	// };
-// 	console.log(body);
-// 	return (
-// 		<Modal id="modal" isOpen={abierto} style={modalStyles}>
-// 			<ModalHeader>Inicio de Sesión</ModalHeader>
-// 			<ModalBody>
-// 				<FormGroup style={{ width: "225px" }}>
-// 					<Label for="email">Email</Label>
-// 					<Input type="text" id="email" onChange={e => setEmail(e.target.value)} />
-// 				</FormGroup>
-// 				<FormGroup style={{ width: "225px" }}>
-// 					<Label for="password">Contraseña</Label>
-// 					<Input type="password" id="password" onChange={e => setPassword(e.target.value)} />
-// 				</FormGroup>
-// 			</ModalBody>
-// 			<ModalFooter>
-// 				<Button color="primary" onClick={onSubmit}>
-// 					Enviar
-// 				</Button>
-// 				<Button color="secondary" onClick={abrirModal}>
-// 					Cancelar
-// 				</Button>
-// 				<Link to="/recuperacion">Olvidó su contraseña?</Link>
-// 			</ModalFooter>
-// 		</Modal>
-// 	);
-// };
-
-// export default Login;
-
 import "../../styles/register.css";
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../styles/login.scss";
+import swal from "@sweetalert/with-react";
+import SweetAlert from "sweetalert2-react";
 
 export const Login = () => {
 	const [email, setEmail] = useState("");
@@ -86,15 +23,19 @@ export const Login = () => {
 		actions.login(body);
 	};
 
+	// swal(<div>Hello world</div>, {
+	// 	buttons: true
+	// });
+
 	return (
-		<div className="">
+		<div>
 			<div className="text-center mx-auto pt-5">
 				<br />
 				<br />
 				<br />
 				<br />
 				<br />
-				<div className="login text-center">
+				<div className="login text-center" style={{ padding: "20px" }}>
 					<h3>Inicio de Sesión</h3>
 
 					<form onSubmit={handleSubmit}>
@@ -133,7 +74,13 @@ export const Login = () => {
 				</div>
 				{console.log(store.role)}
 				{store.role === "vendor" ? (
-					<Redirect to="/editProveedor" />
+					// <Redirect to="/editProveedor" />
+					<Redirect
+						to={{
+							path: "/editProveedor",
+							state: { flashInfo: "Please log in to continue." }
+						}}
+					/>
 				) : store.role === "client" ? (
 					<Redirect to="/perfilUsuario" />
 				) : null}
@@ -144,71 +91,9 @@ export const Login = () => {
 
 export default Login;
 
-// {store.currrentUser && store.currrentUser.role === "vendor" ? (
-// 				<Redirect to="/editProveedor" />
-// 			) : store.currrentUser && store.currrentUser.role === "client" ? (
-// 				<Redirect to="/perfilUsuario" />
-// 			) : null}
-
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from "reactstrap";
-// import "bootstrap/dist/css/bootstrap.css";
-// import { Link } from "react-router-dom";
-// import { Context } from "../store/appContext";
-
-// const Login = () => {
-// 	const [abierto, setAbierto] = useState(true);
-// 	const [email, setEmail] = useState("");
-// 	const [password, setPassword] = useState("");
-// 	const { store, actions } = useContext(Context);
-
-// 	const modalStyles = {
-// 		position: "absolute",
-// 		top: "50%",
-// 		left: "50%",
-// 		transform: "translate(-50%, -50%)"
-// 	};
-
-// 	const body = {
-// 		email: email,
-// 		password: password
-// 	};
-
-// 	const onSubmit = e => {
-// 		actions.login(body);
-// 	};
-
-// 	const abrirModal = () => {
-// 		setAbierto(!abierto);
-// 	};
-
-// 	// const sendForm = () => {
-// 	// 	alert(email);
-// 	// };
-// 	console.log(body);
-// 	return (
-// 		<Modal id="modal" isOpen={abierto} style={modalStyles}>
-// 			<ModalHeader>Inicio de Sesión</ModalHeader>
-// 			<ModalBody>
-// 				<FormGroup style={{ width: "225px" }}>
-// 					<Label for="email">Email</Label>
-// 					<Input type="text" id="email" onChange={e => setEmail(e.target.value)} />
-// 				</FormGroup>
-// 				<FormGroup style={{ width: "225px" }}>
-// 					<Label for="password">Contraseña</Label>
-// 					<Input type="password" id="password" onChange={e => setPassword(e.target.value)} />
-// 				</FormGroup>
-// 			</ModalBody>
-// 			<ModalFooter>
-// 				<Button color="primary" onClick={onSubmit}>
-// 					Enviar
-// 				</Button>
-// 				<Button color="secondary" onClick={abrirModal}>
-// 					Cancelar
-// 				</Button>
-// 				<Link to="/recuperacion">Olvidó su contraseña?</Link>
-// 			</ModalFooter>
-// 		</Modal>
-// 	);
-// };
-
-// export default Login;
+// {console.log(store.role)}
+// {store.role === "vendor" ? (
+//     <Redirect to="/editProveedor" />
+// ) : store.role === "client" ? (
+//         <Redirect to="/perfilUsuario" />
+//     ) : null}

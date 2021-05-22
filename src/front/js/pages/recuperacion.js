@@ -1,57 +1,3 @@
-// import React from "react";
-// //import "./register.css";
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from "reactstrap";
-// import "bootstrap/dist/css/bootstrap.css";
-
-// class Recuperacion extends React.Component {
-// 	state = {
-// 		abierto: true
-// 	};
-
-// 	abrirModal = () => {
-// 		this.setState({ abierto: !this.state.abierto });
-// 	};
-
-// 	render() {
-// 		const modalStyles = {
-// 			position: "absolute",
-// 			top: "50%",
-// 			left: "50%",
-// 			transform: "translate(-50%, -50%)"
-// 		};
-// 		return (
-// 			<>
-// 				{/* <div className="principal">
-// 					<div className="secundario">
-// 						<Button color="success" onClick={this.abrirModal}>
-// 							Recuperar Contraseña
-// 						</Button>
-// 					</div>
-// 				</div> */}
-
-// 				<Modal id="modal" isOpen={this.state.abierto} style={modalStyles}>
-// 					<ModalHeader>Recuperar Contraseña</ModalHeader>
-// 					<ModalBody>
-// 						<FormGroup style={{ width: "400px" }}>
-// 							<Label for="email">Email Registrado</Label>
-// 							<Input type="text" id="email" />
-// 						</FormGroup>
-// 					</ModalBody>
-
-// 					<ModalFooter>
-// 						<Button color="primary">Recuperar</Button>
-// 						<Button color="secondary" onClick={this.abrirModal}>
-// 							Cancel
-// 						</Button>
-// 					</ModalFooter>
-// 				</Modal>
-// 			</>
-// 		);
-// 	}
-// }
-
-// export default Recuperacion;
-
 import React, { useState } from "react";
 
 export const Recuperacion = () => {
@@ -82,10 +28,13 @@ export const Recuperacion = () => {
 	};
 
 	return (
-		<div className="mx-auto pt-5">
+		<div
+			className="container text-center"
+			style={{ width: "450px", height: "250px", marginTop: "150px", marginBottom: "175px", padding: "15px" }}>
+			{" "}
 			<h3>Recuperar Contraseña</h3>
-			<form onSubmit={handleSubmit} style={{ width: "500px" }}>
-				<div className="mb-3">
+			<form onSubmit={handleSubmit} style={{ width: "350px" }}>
+				<div className="">
 					<label htmlFor="exampleInputEmail1" className="form-label">
 						Correo Electrónico
 					</label>
@@ -97,11 +46,11 @@ export const Recuperacion = () => {
 						aria-describedby="emailHelp"
 					/>
 					<div id="emailHelp" className="form-text">
-						Por favor ingrese el correo brindando, y siga las instrucciones.
+						Por favor ingrese el correo brindado, y siga las instrucciones.
 					</div>
 				</div>
 
-				<button type="submit" className="btn btn-primary">
+				<button type="submit" className="btn btn-dark">
 					Enviar
 				</button>
 			</form>
