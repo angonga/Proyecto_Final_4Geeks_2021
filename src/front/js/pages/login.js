@@ -4,14 +4,15 @@ import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../styles/login.scss";
-import swal from "@sweetalert/with-react";
-import SweetAlert from "sweetalert2-react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [auth, setAuth] = useState(false);
 	const { store, actions } = useContext(Context);
+	const MySwal = withReactContent(Swal);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -20,6 +21,10 @@ export const Login = () => {
 			email: email,
 			password: password
 		};
+		MySwal.fire({
+			icon: "success",
+			title: <p>Se ha registrado satisfactoriamente. Por favor proceda a iniciar sesión!</p>
+		});
 		actions.login(body);
 	};
 

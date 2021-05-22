@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "../../styles/recuperacion.scss";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export const Recuperacion = () => {
 	const [email, setEmail] = useState("");
-	// const [auth, setAuth] = useState(false);
+	const MySwal = withReactContent(Swal);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -22,8 +24,10 @@ export const Recuperacion = () => {
 			.then(res => res.json())
 			.then(data => {
 				console.log(data);
-				// setAuth(true);
-				// sessionStorage.setItem("my_token", data.token);
+				MySwal.fire({
+					icon: "success",
+					title: <p>Su nueva contraseña ha sido enviada al correo ingreado</p>
+				});
 			})
 			.catch(err => console.log(err));
 	};

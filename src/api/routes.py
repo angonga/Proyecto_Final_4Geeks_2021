@@ -147,9 +147,9 @@ def show():
 @api.route("/resetpassword", methods=["POST"])
 def resetpassword():
     email = request.json['email']
-    old_password = request.json['old_password']
-    new_password = request.json['new_password']
-    confirmed_password = request.json['confirmed_password']
+    old_password = request.json['oldpassword']
+    new_password = request.json['newpassword']
+    confirmed_password = request.json['confirmedpassword']
     # inputs validation
     if not email:
         return jsonify({"msg": "Por favor ingrese su correo electrónico"}), 400
